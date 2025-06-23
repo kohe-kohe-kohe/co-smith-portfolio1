@@ -149,10 +149,11 @@ body {
 }
 .main-image {
   opacity: 0;
-  transition: opacity 2s ease; /* Adjust '2s' for slower/faster fade */
+  transition: opacity 2s ease; /* Change 2s to 3s, 4s, etc. for slower fade */
   display: block;
-  margin: 0 auto; /* Optional: center the image */
-  max-width: 100%; /* Responsive */
+  margin: 0 auto;       /* Optional: centers image */
+  max-width: 100%;      /* Responsive */
+  height: auto;
 }
 .main-image.fade-in {
   opacity: 1;
