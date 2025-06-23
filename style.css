@@ -1,3 +1,8 @@
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -17,17 +22,28 @@ nav {
   padding: 2.3rem 5vw 1.8rem 5vw;
   background: transparent;
   position: relative;
+  box-sizing: border-box;
 }
 .logo {
   font-size: 2.1rem;
-  font-weight: 700;
+  font-weight: 400;           /* Less bold */
   letter-spacing: 0.14em;
   color: #fff;
   text-transform: uppercase;
+  text-decoration: none;      /* No underline for links */
+  display: inline-block;
+}
+.logo:visited,
+.logo:active,
+.logo:hover,
+.logo:focus {
+  color: #fff;
+  text-decoration: none;
 }
 .nav-links {
   display: flex;
   gap: 2.3rem;
+  flex-wrap: wrap;
 }
 .nav-links a {
   color: #eaeaea;
@@ -40,6 +56,7 @@ nav {
   transition: color 0.2s, opacity 0.2s;
   position: relative;
   padding-bottom: 3px;
+  white-space: nowrap;
 }
 .nav-links a:hover,
 .nav-links a:focus {
@@ -60,10 +77,13 @@ main {
 }
 .centerpiece img {
   max-width: 80vw;
+  width: 100%;
+  height: auto;
   max-height: 68vh;
   border-radius: 17px;
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.45);
   object-fit: contain;
+  display: block;
 }
 h1 {
   font-size: 2.8rem;
@@ -104,4 +124,8 @@ p {
     max-width: 98vw;
     max-height: 36vh;
   }
+}
+
+body, nav, .nav-links, main {
+  word-break: break-word;
 }
