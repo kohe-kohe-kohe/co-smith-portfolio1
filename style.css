@@ -129,6 +129,13 @@ p {
 body, nav, .nav-links, main {
   word-break: break-word;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* ... keep your other body styles ... */
+}
+
 .copyright {
   width: 100%;
   text-align: center;
@@ -138,4 +145,5 @@ body, nav, .nav-links, main {
   letter-spacing: 0.04em;
   background: transparent;
   font-family: 'Barlow Condensed', Arial, sans-serif;
+  margin-top: auto;  
 }
