@@ -147,3 +147,13 @@ body {
   font-family: 'Barlow Condensed', Arial, sans-serif;
   margin-top: auto;  
 }
+.main-image {
+  opacity: 0;
+  transition: opacity 2s ease; /* Adjust '2s' for slower/faster fade */
+  display: block;
+  margin: 0 auto; /* Optional: center the image */
+  max-width: 100%; /* Responsive */
+}
+.main-image.fade-in {
+  opacity: 1;
+}
