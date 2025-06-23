@@ -129,3 +129,13 @@ p {
 body, nav, .nav-links, main {
   word-break: break-word;
 }
+.copyright {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0 1.1rem 0;
+  color: #9b9b9b;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  background: transparent;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+}
