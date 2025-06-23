@@ -24,8 +24,18 @@
     </div>
   </main>
   <footer class="copyright">
-  &copy; 2025 Co Smith. All rights reserved.
-</footer>
+    &copy; 2025 Co Smith. All rights reserved.
+  </footer>
+  <!-- Fade-in JavaScript -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var img = document.querySelector('.main-image');
+      if (img) {
+        setTimeout(function() {
+          img.classList.add('fade-in');
+        }, 100);
+      }
+    });
+  </script>
 </body>
 </html>
- 
