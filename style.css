@@ -3,47 +3,105 @@ body {
   padding: 0;
   background: #0e0e0e;
   color: #eaeaea;
-  font-family: 'Syne Mono', monospace;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 1.16rem;
   opacity: 0;
-  animation: fadeIn 1.5s ease-in forwards;
+  animation: fadeIn 1.1s cubic-bezier(.39,.58,.57,1) forwards;
 }
-
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.3rem 5vw 1.8rem 5vw;
+  background: transparent;
+  position: relative;
+}
+.logo {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #fff;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 2.3rem;
+}
+.nav-links a {
+  color: #eaeaea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: color 0.2s, opacity 0.2s;
+  position: relative;
+  padding-bottom: 3px;
+}
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #ff6f00;
+  opacity: 1;
+}
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 7vh;
 }
-
-.artist-name {
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  margin-bottom: 2rem;
-  text-align: center;
+.centerpiece {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6vh;
 }
-
-.art-image img {
+.centerpiece img {
   max-width: 80vw;
-  max-height: 60vh;
-  border-radius: 16px;
+  max-height: 68vh;
+  border-radius: 17px;
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.45);
   object-fit: contain;
 }
-
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  margin-bottom: 2.2rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+p {
+  color: #bcbcbc;
+  max-width: 600px;
+  margin: 0 auto 2.4rem auto;
+  text-align: center;
+  line-height: 1.7;
+}
 @keyframes fadeIn {
   to { opacity: 1; }
 }
-
-@media (max-width: 600px) {
-  .artist-name {
-    font-size: 2rem;
+@media (max-width: 700px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.4rem 3vw;
   }
-  .art-image img {
+  .nav-links {
+    gap: 1.2rem;
+  }
+  .logo {
+    font-size: 1.3rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .centerpiece img {
     max-width: 98vw;
-    max-height: 40vh;
+    max-height: 36vh;
   }
 }
