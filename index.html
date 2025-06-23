@@ -26,15 +26,15 @@
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
-  <!-- Fade-in JavaScript -->
+  <!-- Fade-in JavaScript: 500ms after body animation -->
   <script>
     window.addEventListener('DOMContentLoaded', function() {
-      var img = document.querySelector('.main-image');
-      if (img) {
-        setTimeout(function() {
+      setTimeout(function() {
+        var img = document.querySelector('.main-image');
+        if (img) {
           img.classList.add('fade-in');
-        }, 100);
-      }
+        }
+      }, 1600); // 1.1s + 0.5s = 1.6s (body anim + half second delay)
     });
   </script>
 </body>
