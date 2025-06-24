@@ -53,6 +53,46 @@
     .contact-form button:focus {
       background: #a7ffb7;
     }
+    .contact-extra {
+      margin: 1.2rem 0 1.6rem 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .instagram-link {
+      color: #c9ffd7;
+      font-size: 1.16rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    .instagram-link:hover,
+    .instagram-link:focus {
+      color: #a7ffb7;
+    }
+    .insta-icon {
+      width: 1.6em;
+      height: 1.6em;
+      vertical-align: middle;
+    }
+    .contact-font-message {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 1.1rem;
+      color: #a7ffb7;
+      letter-spacing: 0.04em;
+    }
+    .contact-subtext {
+      color: #a7ffb7;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+    }
     @media (max-width: 600px) {
       .contact-form {
         max-width: 98vw;
@@ -73,6 +113,16 @@
   </nav>
   <main>
     <h1>Contact</h1>
+    <div class="contact-extra">
+      <a href="https://instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank" class="instagram-link">
+        <img src="images/instagram-icon.svg" alt="Instagram" class="insta-icon" />
+        @YOUR_INSTAGRAM_USERNAME
+      </a>
+      <div class="contact-font-message">Let’s connect on Instagram!</div>
+    </div>
+    <div class="contact-subtext">
+      Feel free to reach out for commissions, collaborations, or just to say hi!
+    </div>
     <form id="contact-form" class="contact-form" autocomplete="off">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
@@ -102,7 +152,7 @@
             }
           });
           if (response.ok) {
-            status.textContent = "Thank you for your message!";
+            status.textContent = "Thank-you";
             form.reset();
           } else {
             status.textContent = "There was a problem. Please try again.";
@@ -118,4 +168,3 @@
   </footer>
 </body>
 </html>
-}
