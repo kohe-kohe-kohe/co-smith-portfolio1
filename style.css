@@ -77,26 +77,38 @@ main {
   margin-top: 7vh;
 }
 
+/* HERO IMAGE SECTION */
 .centerpiece {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 6vh;
-    width: 100vw;
-  height: 80vh; /* makes the image take most of the viewport height */
   justify-content: center;
-  overflow: hidden; /* crop overflow for object-fit: cover */
-
+  margin-top: 0;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+  padding: 0;
+  background: none;
 }
-.centerpiece img {
-  max-width: 80vw;
-  width: 100%;
-  height: auto;
-  max-height: 68vh;
-  border-radius: 0px;
-  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.45);
-  object-fit: contain;
+
+.centerpiece img,
+.main-image {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  border-radius: 0;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.45);
+  margin: 0;
+  opacity: 0;
+  transition: opacity 2s ease;
+  max-width: none;
+  max-height: none;
+}
+
+/* Image fade-in effect */
+.main-image.fade-in {
+  opacity: 1;
 }
 
 h1 {
@@ -133,19 +145,6 @@ p {
   to { opacity: 1; }
 }
 
-/* Main image fades in after body */
-.main-image {
-  opacity: 0;
-  transition: opacity 2s ease;
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-}
-.main-image.fade-in {
-  opacity: 1;
-}
-
 /* Responsive tweaks */
 @media (max-width: 700px) {
   nav {
@@ -163,8 +162,13 @@ p {
   h1 {
     font-size: 1.5rem;
   }
-  .centerpiece img {
-    max-width: 98vw;
-    max-height: 36vh;
+  .centerpiece {
+    height: 45vh;
+  }
+  .centerpiece img,
+  .main-image {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
   }
 }
