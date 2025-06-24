@@ -80,30 +80,29 @@ main {
 /* HERO IMAGE SECTION */
 .centerpiece {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin-top: 0;
+  align-items: center;
   width: 100vw;
   height: 80vh;
-  overflow: hidden;
-  padding: 0;
   background: none;
+  margin-top: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .centerpiece img,
 .main-image {
-  width: 100vw;
-  height: 100%;
-  object-fit: cover;
   display: block;
+  width: 80vw;         /* Fixed image width, black bars on the sides on wide screens */
+  max-width: 1200px;   /* Prevents the image from getting too huge on very wide screens */
+  height: 100%;
+  object-fit: contain; /* Show the whole image (with black bars if aspect ratio doesn't fit) */
   border-radius: 0;
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.45);
-  margin: 0;
+  margin: 0 auto;
   opacity: 0;
   transition: opacity 2s ease;
-  max-width: none;
-  max-height: none;
+  background: #0e0e0e; /* Ensures black bars are the same color as background */
 }
 
 /* Image fade-in effect */
@@ -146,6 +145,13 @@ p {
 }
 
 /* Responsive tweaks */
+@media (max-width: 900px) {
+  .centerpiece img,
+  .main-image {
+    width: 96vw;
+    max-width: 96vw;
+  }
+}
 @media (max-width: 700px) {
   nav {
     flex-direction: column;
@@ -163,12 +169,12 @@ p {
     font-size: 1.5rem;
   }
   .centerpiece {
-    height: 45vh;
+    height: 40vh;
   }
   .centerpiece img,
   .main-image {
-    width: 100vw;
+    width: 98vw;
+    max-width: 98vw;
     height: 100%;
-    object-fit: cover;
   }
 }
