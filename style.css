@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   background: #0e0e0e;
-  color: #eaeaea;
+  color: #c9cfff; /* Very pale blue-purple */
   font-family: 'Barlow Condensed', Arial, sans-serif;
   min-height: 100vh;
   font-size: 1.16rem;
@@ -33,7 +33,7 @@ nav {
   font-size: 2.1rem;
   font-weight: 400;
   letter-spacing: 0.14em;
-  color: #ff6f00; /* Changed logo color */
+  color: #c9cfff; /* Very pale blue-purple */
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
@@ -42,7 +42,7 @@ nav {
 .logo:active,
 .logo:hover,
 .logo:focus {
-  color: #ffae42; /* Lighter orange on hover/focus/active/visited */
+  color: #c9cfff;
   text-decoration: none;
 }
 
@@ -52,21 +52,21 @@ nav {
   flex-wrap: wrap;
 }
 .nav-links a {
-  color: #eaeaea;
+  color: #c9cfff; /* Very pale blue-purple */
   text-decoration: none;
   font-weight: 500;
   font-size: 1.3rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.85;
-  transition: color 0.2s, opacity 0.2s;
+  opacity: 1;
+  transition: none;
   position: relative;
   padding-bottom: 3px;
   white-space: nowrap;
 }
 .nav-links a:hover,
 .nav-links a:focus {
-  color: #ff6f00;
+  color: #c9cfff;
   opacity: 1;
 }
 
@@ -93,8 +93,8 @@ main {
 .centerpiece img,
 .main-image {
   display: block;
-  width: 80vw;         
-  max-width: 1200px;   
+  width: 80vw;
+  max-width: 1200px;
   height: 100%;
   object-fit: contain;
   border-radius: 0;
@@ -115,10 +115,10 @@ h1 {
   margin-bottom: 2.2rem;
   text-align: center;
   text-transform: uppercase;
-  color: #ffae42; /* Heading color changed */
+  color: #c9cfff; /* Very pale blue-purple */
 }
 p {
-  color: #bcbcbc;
+  color: #c9cfff; /* Very pale blue-purple */
   max-width: 600px;
   margin: 0 auto 2.4rem auto;
   text-align: center;
@@ -129,7 +129,7 @@ p {
   width: 100%;
   text-align: center;
   padding: 2rem 0 1.1rem 0;
-  color: #ff6f00; /* Footer font color changed */
+  color: #c9cfff; /* Very pale blue-purple */
   font-size: 1rem;
   letter-spacing: 0.04em;
   background: transparent;
