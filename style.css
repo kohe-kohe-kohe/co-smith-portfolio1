@@ -82,13 +82,18 @@ main {
   flex-direction: column;
   align-items: center;
   margin-top: 6vh;
+    width: 100vw;
+  height: 80vh; /* makes the image take most of the viewport height */
+  justify-content: center;
+  overflow: hidden; /* crop overflow for object-fit: cover */
+
 }
 .centerpiece img {
   max-width: 80vw;
   width: 100%;
   height: auto;
   max-height: 68vh;
-  border-radius: 17px;
+  border-radius: 0px;
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.45);
   object-fit: contain;
   display: block;
