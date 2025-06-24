@@ -33,7 +33,7 @@ nav {
   font-size: 2.1rem;
   font-weight: 400;
   letter-spacing: 0.14em;
-  color: #fff;
+  color: #ff6f00; /* Changed logo color */
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
@@ -42,7 +42,7 @@ nav {
 .logo:active,
 .logo:hover,
 .logo:focus {
-  color: #fff;
+  color: #ffae42; /* Lighter orange on hover/focus/active/visited */
   text-decoration: none;
 }
 
@@ -93,19 +93,17 @@ main {
 .centerpiece img,
 .main-image {
   display: block;
-  width: 80vw;         /* Fixed image width, black bars on the sides on wide screens */
-  max-width: 1200px;   /* Prevents the image from getting too huge on very wide screens */
+  width: 80vw;         
+  max-width: 1200px;   
   height: 100%;
-  object-fit: contain; /* Show the whole image (with black bars if aspect ratio doesn't fit) */
+  object-fit: contain;
   border-radius: 0;
-  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.45);
   margin: 0 auto;
   opacity: 0;
   transition: opacity 2s ease;
-  background: #0e0e0e; /* Ensures black bars are the same color as background */
+  background: #0e0e0e;
 }
 
-/* Image fade-in effect */
 .main-image.fade-in {
   opacity: 1;
 }
@@ -117,7 +115,7 @@ h1 {
   margin-bottom: 2.2rem;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
+  color: #ffae42; /* Heading color changed */
 }
 p {
   color: #bcbcbc;
@@ -131,7 +129,7 @@ p {
   width: 100%;
   text-align: center;
   padding: 2rem 0 1.1rem 0;
-  color: #9b9b9b;
+  color: #ff6f00; /* Footer font color changed */
   font-size: 1rem;
   letter-spacing: 0.04em;
   background: transparent;
