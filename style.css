@@ -372,3 +372,28 @@ nav {
     height: 130px;
   }
 }
+.nav-links a,
+.dropbtn {
+  color: #c9ffd7;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: none;
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.dropbtn:hover,
+.dropbtn:focus,
+.dropbtn.active {
+  color: #c9ffd7 !important;
+  background: none !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  opacity: 1 !important;
+}
