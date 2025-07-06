@@ -8,6 +8,102 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* NAV STYLES */
+    nav {
+      background: #111;
+      padding: 1rem 0.5rem;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2rem;
+      color: #c9ffd7;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 1rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .nav-links a, .dropbtn {
+      color: #c9ffd7;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+      background: none;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .nav-links a:hover, .dropbtn:hover, .dropbtn.active {
+      background: #a7ffb7;
+      color: #111;
+    }
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 110%;
+      background-color: #181b1b;
+      min-width: 170px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.10);
+      border-radius: 0 0 8px 8px;
+      z-index: 10;
+      overflow: hidden;
+    }
+    .dropdown-content a {
+      color: #c9ffd7;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .dropdown-content a:hover {
+      background-color: #a7ffb7;
+      color: #0e0e0e;
+    }
+    /* Show dropdown on hover (desktop) */
+    @media (hover: hover) and (pointer: fine) {
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    }
+    /* Show dropdown on tap/click (mobile) */
+    .dropdown.open .dropdown-content {
+      display: block;
+    }
+    /* Responsive nav tweaks */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.8rem 0.5rem;
+      }
+      .nav-links {
+        gap: 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 1rem;
+      }
+      .dropdown-content {
+        position: static;
+        min-width: 100%;
+        box-shadow: none;
+      }
+    }
+    /* GALLERY styles from above ... (unchanged) */
     .works-options {
       display: flex;
       justify-content: center;
@@ -115,11 +211,11 @@
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
       <a href="info.html">Info</a>
-      <div class="dropdown">
-        <a href="works.html" class="dropbtn">Works</a>
-        <div class="dropdown-content">
-          <a href="#series">By Series</a>
-          <a href="#year">By Year</a>
+      <div class="dropdown" id="works-dropdown">
+        <button class="dropbtn" id="works-dropbtn" aria-haspopup="true" aria-expanded="false">Works &#9662;</button>
+        <div class="dropdown-content" role="menu">
+          <a href="#series" role="menuitem">By Series</a>
+          <a href="#year" role="menuitem">By Year</a>
         </div>
       </div>
       <a href="store.html">Store</a>
@@ -176,5 +272,28 @@
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
+  <script>
+    // Dropdown tap/click for mobile
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdown = document.getElementById('works-dropdown');
+      var dropbtn = document.getElementById('works-dropbtn');
+
+      // Toggle dropdown on click
+      dropbtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+        // Update aria-expanded for accessibility
+        dropbtn.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function (event) {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove('open');
+          dropbtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
