@@ -7,23 +7,174 @@
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .works-options {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2.5rem 0 2.5rem 0;
+      flex-wrap: wrap;
+    }
+    .works-option {
+      text-align: center;
+      text-decoration: none;
+      color: #c9ffd7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 1.3rem;
+      transition: transform 0.2s, color 0.2s;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #181b1b;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      width: 260px;
+    }
+    .works-option:hover {
+      color: #0e0e0e;
+      background: #a7ffb7;
+      transform: scale(1.04);
+    }
+    .works-option img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    .works-option-label {
+      padding: 1rem 0.5rem;
+      background: #222;
+      border-radius: 0 0 10px 10px;
+      font-weight: bold;
+      font-size: 1.13rem;
+    }
+    .works-section-title {
+      margin-top: 3.5rem;
+      margin-bottom: 1.2rem;
+      color: #a7ffb7;
+      font-size: 1.26rem;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+    .works-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem auto 2.5rem auto;
+      max-width: 1000px;
+      padding: 0 1rem;
+    }
+    .gallery-item {
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-decoration: none;
+      color: #c9ffd7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+    }
+    .gallery-item:hover {
+      transform: scale(1.04);
+      color: #0e0e0e;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      margin-bottom: 0.8rem;
+    }
+    .gallery-item-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    @media (max-width: 700px){
+      .works-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .works-option {
+        width: 98vw;
+        max-width: 340px;
+      }
+      .works-option img {
+        height: 120px;
+      }
+      .works-gallery {
+        grid-template-columns: 1fr;
+      }
+      .gallery-item img {
+        height: 130px;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
       <a href="info.html">Info</a>
-      <a href="works.html">Works</a>
+      <div class="dropdown">
+        <a href="works.html" class="dropbtn">Works</a>
+        <div class="dropdown-content">
+          <a href="#series">By Series</a>
+          <a href="#year">By Year</a>
+        </div>
+      </div>
       <a href="store.html">Store</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
   <main>
     <h1>Works</h1>
-    <p>Showcase your artwork here. You can use images, titles, and descriptions for each piece.</p>
+    <div class="works-options">
+      <a class="works-option" href="#series">
+        <img src="images/series-thumb.jpg" alt="By Series">
+        <div class="works-option-label">Browse by Series</div>
+      </a>
+      <a class="works-option" href="#year">
+        <img src="images/year-thumb.jpg" alt="By Year">
+        <div class="works-option-label">Browse by Year</div>
+      </a>
+    </div>
+    <!-- SERIES SECTION -->
+    <div id="series" class="works-section-title">Works by Series</div>
+    <div class="works-gallery">
+      <a class="gallery-item" href="series-dreams.html">
+        <img src="images/dreams-thumb.jpg" alt="Dreams Series">
+        <div class="gallery-item-title">Dreams</div>
+      </a>
+      <a class="gallery-item" href="series-landscapes.html">
+        <img src="images/landscapes-thumb.jpg" alt="Landscapes Series">
+        <div class="gallery-item-title">Landscapes</div>
+      </a>
+      <a class="gallery-item" href="series-portraits.html">
+        <img src="images/portraits-thumb.jpg" alt="Portraits Series">
+        <div class="gallery-item-title">Portraits</div>
+      </a>
+      <!-- Add more series as needed -->
+    </div>
+    <!-- YEAR SECTION -->
+    <div id="year" class="works-section-title">Works by Year</div>
+    <div class="works-gallery">
+      <a class="gallery-item" href="works-2025.html">
+        <img src="images/2025-thumb.jpg" alt="Works from 2025">
+        <div class="gallery-item-title">2025</div>
+      </a>
+      <a class="gallery-item" href="works-2024.html">
+        <img src="images/2024-thumb.jpg" alt="Works from 2024">
+        <div class="gallery-item-title">2024</div>
+      </a>
+      <a class="gallery-item" href="works-2023.html">
+        <img src="images/2023-thumb.jpg" alt="Works from 2023">
+        <div class="gallery-item-title">2023</div>
+      </a>
+      <!-- Add more years as needed -->
+    </div>
   </main>
   <footer class="copyright">
-  &copy; 2025 Co Smith. All rights reserved.
-</footer>
+    &copy; 2025 Co Smith. All rights reserved.
+  </footer>
 </body>
 </html>
