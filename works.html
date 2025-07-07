@@ -16,12 +16,14 @@
       display: flex;
       flex-direction: column;
     }
+    /* Headings */
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Barlow Condensed', Arial, sans-serif;
       font-weight: 700;
       color: #c9ffd7;
       letter-spacing: 0.13em;
       text-align: center;
+      margin: 0;
     }
     h1 {
       font-size: 2.3rem;
@@ -29,10 +31,18 @@
       margin-top: 2.3rem;
       margin-bottom: 2.3rem;
     }
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 1.4rem;
+        margin-bottom: 1.2rem;
+      }
+    }
+    /* Navigation */
     nav {
       background: #111;
       padding: 1rem 0.5rem;
-      font-family: inherit;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -44,6 +54,14 @@
       font-weight: bold;
       margin-left: 1rem;
       letter-spacing: 0.06em;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .logo:hover,
+    .logo:focus {
+      color: #a7ffb7;
+      text-decoration: none;
     }
     .nav-links {
       display: flex;
@@ -58,15 +76,24 @@
       border-radius: 6px;
       background: none;
       border: none;
-      font-family: inherit;
-      cursor: pointer;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a[aria-current="page"] {
+      color: #a7ffb7;
+      text-decoration: underline;
+      background: #222;
     }
     .nav-links a:hover,
     .nav-links a:focus {
-      background: none;
-      color: #c9ffd7;
-      text-decoration: none;
+      color: #a7ffb7;
+      text-decoration: underline;
+      background: #222;
     }
+    /* Works List */
     main.works-main {
       flex: 1;
       display: flex;
@@ -78,29 +105,6 @@
       z-index: 1;
       width: 100vw;
       overflow: hidden;
-    }
-    .background-previews {
-      pointer-events: none;
-      position: absolute;
-      left: 0; top: 0; right: 0; bottom: 0;
-      width: 100vw; height: 100%;
-      z-index: 0;
-    }
-    .preview-bg {
-      position: absolute;
-      left: 0; top: 0; width: 100vw; height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0;
-      transition: opacity 0.5s cubic-bezier(.7,.2,.3,1);
-      filter: grayscale(0.13) brightness(0.82) contrast(1.13) blur(2.5px);
-      pointer-events: none;
-      z-index: 0;
-      user-select: none;
-    }
-    .preview-bg.active {
-      opacity: 1;
-      transition: opacity 0.45s cubic-bezier(.95,.05,.52,1);
     }
     .works-list {
       list-style: none;
@@ -127,13 +131,14 @@
       border: none;
       background: none;
       box-shadow: none;
-      transition: none;
+      transition: color 0.2s;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
     }
     .works-link:visited,
     .works-link:active,
     .works-link:hover,
     .works-link:focus {
-      color: #c9ffd7;
+      color: #a7ffb7;
       text-decoration: none;
       border: none;
       background: none;
@@ -146,6 +151,8 @@
       letter-spacing: 0.01em;
       margin-bottom: 0.13em;
       display: block;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      text-transform: uppercase;
     }
     .works-date {
       font-size: 0.92rem;
@@ -154,13 +161,9 @@
       font-weight: 400;
       letter-spacing: 0.04em;
       margin-left: 0.1em;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
     }
     @media (max-width: 700px) {
-      h1 {
-        font-size: 2rem;
-        margin-top: 1.4rem;
-        margin-bottom: 1.2rem;
-      }
       .works-list {
         max-width: 98vw;
         gap: 1.1rem;
@@ -178,7 +181,7 @@
       padding: 2.2rem 0 1.2rem 0;
       font-size: 1rem;
       letter-spacing: 0.04em;
-      font-family: inherit;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
       background: none;
     }
   </style>
@@ -195,54 +198,45 @@
   </nav>
   <main class="works-main">
     <h1>Works</h1>
-    <div class="background-previews">
-      <img src="images/dreams-crop.jpg" class="preview-bg" data-id="dreams" alt="" />
-      <img src="images/landscapes-crop.jpg" class="preview-bg" data-id="landscapes" alt="" />
-      <img src="images/portraits-crop.jpg" class="preview-bg" data-id="portraits" alt="" />
-      <img src="images/2025-crop.jpg" class="preview-bg" data-id="2025" alt="" />
-      <img src="images/2024-crop.jpg" class="preview-bg" data-id="2024" alt="" />
-      <img src="images/2023-crop.jpg" class="preview-bg" data-id="2023" alt="" />
-      <img src="images/east-jesus-crop.jpg" class="preview-bg" data-id="eastjesus" alt="" />
-    </div>
     <ul class="works-list">
       <li>
-        <a class="works-link" href="Untitled–APR-MAY25.html" data-bg="dreams">
+        <a class="works-link" href="Untitled–APR-MAY25.html">
           <span class="works-title">Untitled – APR/MAY ’25</span>
           <span class="works-date">APR/MAY ’25</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="series-landscapes.html" data-bg="landscapes">
+        <a class="works-link" href="series-landscapes.html">
           <span class="works-title">Landscapes Series – 2024–25</span>
           <span class="works-date">2024–25</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="series-portraits.html" data-bg="portraits">
+        <a class="works-link" href="series-portraits.html">
           <span class="works-title">Portraits Series – 2022–25</span>
           <span class="works-date">2022–25</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="works-2025.html" data-bg="2025">
+        <a class="works-link" href="works-2025.html">
           <span class="works-title">Works 2025</span>
           <span class="works-date">2025</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="works-2024.html" data-bg="2024">
+        <a class="works-link" href="works-2024.html">
           <span class="works-title">Works 2024</span>
           <span class="works-date">2024</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="works-2023.html" data-bg="2023">
+        <a class="works-link" href="works-2023.html">
           <span class="works-title">Works 2023</span>
           <span class="works-date">2023</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="east-jesus.html" data-bg="eastjesus">
+        <a class="works-link" href="east-jesus.html">
           <span class="works-title">East Jesus</span>
           <span class="works-date">2023–2025</span>
         </a>
@@ -252,32 +246,5 @@
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
-  <script>
-    // Show/Hide background preview on hover/focus/tap
-    const worksLinks = document.querySelectorAll('.works-link');
-    const previews = document.querySelectorAll('.preview-bg');
-    function setActiveBg(id) {
-      previews.forEach(preview => {
-        if (preview.dataset.id === id) {
-          preview.classList.add('active');
-        } else {
-          preview.classList.remove('active');
-        }
-      });
-    }
-    function clearBg() {
-      previews.forEach(preview => preview.classList.remove('active'));
-    }
-    worksLinks.forEach(item => {
-      item.addEventListener('mouseenter', e => setActiveBg(item.dataset.bg));
-      item.addEventListener('focus', e => setActiveBg(item.dataset.bg));
-      item.addEventListener('mouseleave', e => clearBg());
-      item.addEventListener('blur', e => clearBg());
-      item.addEventListener('touchstart', e => setActiveBg(item.dataset.bg));
-    });
-    document.body.addEventListener('touchstart', function(e) {
-      if (!e.target.classList.contains('works-link')) clearBg();
-    }, {passive: true});
-  </script>
 </body>
 </html>
