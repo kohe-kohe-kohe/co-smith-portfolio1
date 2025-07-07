@@ -6,7 +6,6 @@
   <title>Works – Co Smith</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       background: #0e0e0e;
@@ -48,41 +47,25 @@
       border: none;
       font-family: inherit;
       cursor: pointer;
-      transition: none;
     }
-    /* Remove hover/focus effect */
     .nav-links a:hover,
     .nav-links a:focus {
       background: none;
       color: #c9ffd7;
       text-decoration: none;
     }
-
     main.works-main {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 6vw;
+      padding-top: 5vw;
       min-height: 90vh;
       position: relative;
       z-index: 1;
       width: 100vw;
       overflow: hidden;
     }
-
-    h1 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      margin-bottom: 2.8rem;
-      text-align: center;
-      text-transform: uppercase;
-      color: #c9ffd7;
-      z-index: 2;
-      position: relative;
-    }
-
     /* Background preview images */
     .background-previews {
       pointer-events: none;
@@ -107,84 +90,56 @@
       opacity: 1;
       transition: opacity 0.45s cubic-bezier(.95,.05,.52,1);
     }
-
     /* WORKS LIST STYLES */
     .works-list {
       list-style: none;
       padding: 0;
       margin: 0 auto;
       width: 100%;
-      max-width: 450px;
+      max-width: 330px;
       display: flex;
       flex-direction: column;
-      gap: 2.3rem;
+      gap: 0.9rem;
       z-index: 2;
       position: relative;
     }
-    .works-list li {
-      margin: 0;
-      padding: 0;
-    }
     .works-link {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-      justify-content: space-between;
+      display: block;
       text-decoration: none;
       color: #c9ffd7;
-      font-size: 1.6rem;
-      font-weight: 600;
+      font-size: 0.92rem;
       letter-spacing: 0.03em;
-      padding: 0.2em 0.1em;
+      font-weight: 400;
+      padding: 0.15em 0.1em;
       border: none;
       background: none;
-      transition: none;
-      /* Remove underline & hover */
-      text-decoration: none !important;
       box-shadow: none;
+      transition: none;
     }
     .works-link:visited,
-    .works-link:active {
+    .works-link:active,
+    .works-link:hover,
+    .works-link:focus {
       color: #c9ffd7;
       text-decoration: none;
-      box-shadow: none;
-    }
-    /* NO hover/focus effect */
-    .works-link:hover, .works-link:focus {
-      color: #c9ffd7;
       border: none;
       background: none;
-      text-decoration: none;
       box-shadow: none;
     }
-    .works-title {
-      text-transform: uppercase;
-      font-size: 1.22em;
-      font-weight: 700;
-    }
     .works-date {
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 0.92rem;
       color: #a7ffb7;
-      margin-left: 1.5em;
+      opacity: 0.82;
+      font-weight: 400;
       letter-spacing: 0.04em;
-      opacity: 0.8;
     }
     @media (max-width: 700px) {
-      h1 {
-        font-size: 1.3rem;
-      }
       .works-list {
-        max-width: 97vw;
-        gap: 1.2rem;
+        max-width: 98vw;
+        gap: 0.5rem;
       }
-      .works-link {
-        font-size: 1.1rem;
-        padding: 0.4em 0.1em;
-      }
-      .works-date {
-        font-size: 0.88rem;
-        margin-left: 0.7em;
+      .works-link, .works-date {
+        font-size: 0.83rem;
       }
     }
     footer.copyright {
@@ -209,69 +164,60 @@
     </div>
   </nav>
   <main class="works-main">
-    <h1>Works</h1>
     <!-- Background preview images -->
     <div class="background-previews">
-      <!-- Each image has a data-id, matching a data-bg on the works-link below -->
-      <img src="images/dreams-crop.jpg" class="preview-bg" data-id="dreams" alt="" aria-hidden="true" />
-      <img src="images/landscapes-crop.jpg" class="preview-bg" data-id="landscapes" alt="" aria-hidden="true" />
-      <img src="images/portraits-crop.jpg" class="preview-bg" data-id="portraits" alt="" aria-hidden="true" />
-      <img src="images/2025-crop.jpg" class="preview-bg" data-id="2025" alt="" aria-hidden="true" />
-      <img src="images/2024-crop.jpg" class="preview-bg" data-id="2024" alt="" aria-hidden="true" />
-      <img src="images/2023-crop.jpg" class="preview-bg" data-id="2023" alt="" aria-hidden="true" />
-      <!-- Add more as needed, one per series/year -->
+      <img src="images/dreams-crop.jpg" class="preview-bg" data-id="dreams" alt="" />
+      <img src="images/landscapes-crop.jpg" class="preview-bg" data-id="landscapes" alt="" />
+      <img src="images/portraits-crop.jpg" class="preview-bg" data-id="portraits" alt="" />
+      <img src="images/2025-crop.jpg" class="preview-bg" data-id="2025" alt="" />
+      <img src="images/2024-crop.jpg" class="preview-bg" data-id="2024" alt="" />
+      <img src="images/2023-crop.jpg" class="preview-bg" data-id="2023" alt="" />
+      <!-- Add more as needed -->
     </div>
     <ul class="works-list">
       <li>
         <a class="works-link" href="Untitled–APR-MAY25.html" data-bg="dreams">
-          <span class="works-title">Untitled</span>
           <span class="works-date">APR/MAY ’25</span>
         </a>
       </li>
       <li>
         <a class="works-link" href="series-landscapes.html" data-bg="landscapes">
-          <span class="works-title">Landscapes</span>
           <span class="works-date">2024–25</span>
         </a>
       </li>
       <li>
         <a class="works-link" href="series-portraits.html" data-bg="portraits">
-          <span class="works-title">Portraits</span>
           <span class="works-date">2022–25</span>
         </a>
       </li>
       <li>
         <a class="works-link" href="works-2025.html" data-bg="2025">
-          <span class="works-title">2025</span>
+          <span class="works-date">2025</span>
         </a>
       </li>
       <li>
         <a class="works-link" href="works-2024.html" data-bg="2024">
-          <span class="works-title">2024</span>
+          <span class="works-date">2024</span>
         </a>
       </li>
       <li>
         <a class="works-link" href="works-2023.html" data-bg="2023">
-          <span class="works-title">2023</span>
+          <span class="works-date">2023</span>
         </a>
       </li>
-      <!-- Add more works here as needed -->
     </ul>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
   <script>
-    // Fade in background image matching hovered/focused work link
+    // Show/Hide background preview on hover/focus/tap
     const worksLinks = document.querySelectorAll('.works-link');
     const previews = document.querySelectorAll('.preview-bg');
-    let lastActive = null;
-
     function setActiveBg(id) {
       previews.forEach(preview => {
         if (preview.dataset.id === id) {
           preview.classList.add('active');
-          lastActive = preview;
         } else {
           preview.classList.remove('active');
         }
@@ -279,21 +225,14 @@
     }
     function clearBg() {
       previews.forEach(preview => preview.classList.remove('active'));
-      lastActive = null;
     }
-
     worksLinks.forEach(item => {
       item.addEventListener('mouseenter', e => setActiveBg(item.dataset.bg));
       item.addEventListener('focus', e => setActiveBg(item.dataset.bg));
       item.addEventListener('mouseleave', e => clearBg());
       item.addEventListener('blur', e => clearBg());
-      // For touch devices: tap to show, tap elsewhere to clear
-      item.addEventListener('touchstart', e => {
-        setActiveBg(item.dataset.bg);
-      });
+      item.addEventListener('touchstart', e => setActiveBg(item.dataset.bg));
     });
-
-    // Hide background if clicking/tapping outside
     document.body.addEventListener('touchstart', function(e) {
       if (!e.target.classList.contains('works-link')) clearBg();
     }, {passive: true});
