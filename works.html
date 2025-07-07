@@ -16,6 +16,18 @@
       display: flex;
       flex-direction: column;
     }
+    /* Blurred background image (ALWAYS visible and behind everything) */
+    .works-blur-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      filter: blur(28px) brightness(0.4) saturate(1.2);
+      z-index: 0;
+      opacity: 1;
+      pointer-events: none;
+      user-select: none;
+    }
     /* Headings */
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Barlow Condensed', Arial, sans-serif;
@@ -46,6 +58,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
     .logo {
       font-size: 2rem;
@@ -183,10 +197,14 @@
       letter-spacing: 0.04em;
       font-family: 'Barlow Condensed', Arial, sans-serif;
       background: none;
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
+  <!-- Blurred background image (always visible, behind everything) -->
+  <img src="images/ej blur.png" alt="" class="works-blur-bg" aria-hidden="true">
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
