@@ -67,16 +67,17 @@
         margin-left: 1rem;
       }
     }
-    /* Works page proper */
-    main {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3vw 2vw 5vw 2vw;
+
+    main.works-main {
+      width: 100vw;
+      min-height: 90vh;
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
     h1 {
       font-size: 2.3rem;
@@ -86,141 +87,83 @@
       text-align: center;
       text-transform: uppercase;
       color: #c9ffd7;
+      z-index: 2;
+      position: relative;
     }
-    .works-options {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      margin: 2rem 0 2.5rem 0;
-      flex-wrap: wrap;
-      width: 100%;
+    /* --- Background preview images --- */
+    .background-previews {
+      pointer-events: none;
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100%;
+      z-index: 0;
     }
-    .works-option {
-      text-align: center;
-      text-decoration: none;
-      color: #c9ffd7;
-      font-family: inherit;
-      font-size: 1.18rem;
-      border-radius: 12px;
-      background: #181b1b;
-      width: 245px;
-      box-shadow: none;
-      transition: filter 0.22s, transform 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .works-option img {
-      width: 100%;
-      height: 140px;
+    .preview-bg {
+      position: absolute;
+      left: 0; top: 0; width: 100vw; height: 100%;
       object-fit: cover;
-      border-radius: 12px 12px 0 0;
-      background: #222;
+      object-position: center;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(.7,.2,.3,1);
+      filter: grayscale(0.15) brightness(0.82) contrast(1.13) blur(0.5px);
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
     }
-    .works-option-label {
-      padding: 1rem 0.5rem;
-      background: #181b1b;
-      width: 100%;
-      border-radius: 0 0 12px 12px;
-      font-weight: 600;
-      font-size: 1.13rem;
-      letter-spacing: 0.04em;
+    .preview-bg.active {
+      opacity: 1;
+      transition: opacity 0.45s cubic-bezier(.95,.05,.52,1);
     }
-    .works-option:hover, .works-option:focus {
-      filter: brightness(1.07) contrast(1.09) grayscale(0.03);
-      transform: scale(1.025);
-      color: #fff;
-      background: #181b1b;
-    }
-    .works-section-title {
-      margin-top: 3.5rem;
-      margin-bottom: 1.2rem;
-      color: #a7ffb7;
-      font-size: 1.23rem;
-      font-family: inherit;
-      letter-spacing: 0.03em;
-      text-align: center;
-      font-weight: 700;
-    }
-    .works-gallery {
+    /* --- Grid of series/years --- */
+    .works-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 2.2rem 2.6rem;
-      margin: 2rem auto 2.5rem auto;
       max-width: 1000px;
-      padding: 0 1rem;
       width: 100%;
-      justify-items: center;
+      z-index: 2;
+      margin-bottom: 3.5rem;
+      position: relative;
     }
-    .gallery-item {
+    .works-grid .grid-item {
       text-align: center;
       cursor: pointer;
       text-decoration: none;
       color: #c9ffd7;
       font-family: inherit;
       background: none;
-      transition: filter 0.19s, transform 0.18s;
+      transition: color 0.19s, transform 0.18s;
       border-radius: 10px;
-      width: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .gallery-item img {
-      width: 100%;
-      max-width: 220px;
-      height: 164px;
-      object-fit: cover;
-      border-radius: 10px;
-      background: #222;
-      margin-bottom: 0.65rem;
-      box-shadow: none;
-    }
-    .gallery-item-title {
-      font-size: 1.08rem;
-      margin-bottom: 0.2rem;
-      font-weight: 600;
+      min-height: 4.5em;
+      font-size: 1.3rem;
       letter-spacing: 0.04em;
-      color: #a7ffb7;
-      background: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 1.7em 0.5em 1.4em 0.5em;
+      position: relative;
+      z-index: 2;
+      background: rgba(20,20,20,0.34);
+      outline: none;
+      border: none;
     }
-    .gallery-item:hover, .gallery-item:focus {
-      filter: brightness(1.11) contrast(1.10) grayscale(0.02);
-      transform: scale(1.027);
-      color: #fff;
-      background: none;
+    .works-grid .grid-item:hover,
+    .works-grid .grid-item:focus {
+      color: #a7ffb7;
+      background: rgba(25,41,25,0.09);
+      transform: scale(1.03);
     }
     @media (max-width: 700px){
-      main {
-        max-width: 98vw;
-        padding: 3vw 2vw 6vw 2vw;
-      }
       h1 {
         font-size: 1.4rem;
       }
-      .works-options {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        width: 100%;
-      }
-      .works-option {
-        width: 97vw;
-        max-width: 320px;
-      }
-      .works-option img {
-        height: 100px;
-      }
-      .works-gallery {
+      .works-grid {
         grid-template-columns: 1fr;
         gap: 1.4rem 0;
+        padding: 0 2vw;
       }
-      .gallery-item {
-        width: 97vw;
-        max-width: 320px;
-      }
-      .gallery-item img {
-        height: 110px;
+      .works-grid .grid-item {
+        font-size: 1.07rem;
+        padding: 1.2em 0.4em 1em 0.4em;
       }
     }
     footer.copyright {
@@ -244,55 +187,69 @@
       <a href="contact.html">Contact</a>
     </div>
   </nav>
-  <main>
+  <main class="works-main">
     <h1>Works</h1>
-    <nav class="works-options" aria-label="Browse works">
-      <a class="works-option" href="#series">
-        <img src="images/series-thumb.jpg" alt="By Series">
-        <div class="works-option-label">Browse by Series</div>
-      </a>
-      <a class="works-option" href="#year">
-        <img src="images/year-thumb.jpg" alt="By Year">
-        <div class="works-option-label">Browse by Year</div>
-      </a>
-    </nav>
-    <!-- SERIES SECTION -->
-    <div id="series" class="works-section-title">Works by Series</div>
-    <section class="works-gallery" aria-label="Works by series">
-      <a class="gallery-item" href="series-dreams.html">
-        <img src="images/dreams-thumb.jpg" alt="Dreams Series">
-        <div class="gallery-item-title">Dreams</div>
-      </a>
-      <a class="gallery-item" href="series-landscapes.html">
-        <img src="images/landscapes-thumb.jpg" alt="Landscapes Series">
-        <div class="gallery-item-title">Landscapes</div>
-      </a>
-      <a class="gallery-item" href="series-portraits.html">
-        <img src="images/portraits-thumb.jpg" alt="Portraits Series">
-        <div class="gallery-item-title">Portraits</div>
-      </a>
-      <!-- Add more series as needed -->
-    </section>
-    <!-- YEAR SECTION -->
-    <div id="year" class="works-section-title">Works by Year</div>
-    <section class="works-gallery" aria-label="Works by year">
-      <a class="gallery-item" href="works-2025.html">
-        <img src="images/2025-thumb.jpg" alt="Works from 2025">
-        <div class="gallery-item-title">2025</div>
-      </a>
-      <a class="gallery-item" href="works-2024.html">
-        <img src="images/2024-thumb.jpg" alt="Works from 2024">
-        <div class="gallery-item-title">2024</div>
-      </a>
-      <a class="gallery-item" href="works-2023.html">
-        <img src="images/2023-thumb.jpg" alt="Works from 2023">
-        <div class="gallery-item-title">2023</div>
-      </a>
-      <!-- Add more years as needed -->
-    </section>
+    <!-- Background preview images -->
+    <div class="background-previews">
+      <!-- Each image has a data-id, matching a data-bg on the grid item below -->
+      <img src="images/dreams-crop.jpg" class="preview-bg" data-id="dreams" alt="" aria-hidden="true" />
+      <img src="images/landscapes-crop.jpg" class="preview-bg" data-id="landscapes" alt="" aria-hidden="true" />
+      <img src="images/portraits-crop.jpg" class="preview-bg" data-id="portraits" alt="" aria-hidden="true" />
+      <img src="images/2025-crop.jpg" class="preview-bg" data-id="2025" alt="" aria-hidden="true" />
+      <img src="images/2024-crop.jpg" class="preview-bg" data-id="2024" alt="" aria-hidden="true" />
+      <img src="images/2023-crop.jpg" class="preview-bg" data-id="2023" alt="" aria-hidden="true" />
+      <!-- Add more as needed, one per series/year -->
+    </div>
+    <!-- Main grid -->
+    <div class="works-grid">
+      <a class="grid-item" href="series-dreams.html" data-bg="dreams">Dreams</a>
+      <a class="grid-item" href="series-landscapes.html" data-bg="landscapes">Landscapes</a>
+      <a class="grid-item" href="series-portraits.html" data-bg="portraits">Portraits</a>
+      <a class="grid-item" href="works-2025.html" data-bg="2025">2025</a>
+      <a class="grid-item" href="works-2024.html" data-bg="2024">2024</a>
+      <a class="grid-item" href="works-2023.html" data-bg="2023">2023</a>
+      <!-- Add more as needed -->
+    </div>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
+  <script>
+    // Fade in background image matching hovered grid item
+    const gridItems = document.querySelectorAll('.grid-item');
+    const previews = document.querySelectorAll('.preview-bg');
+    let lastActive = null;
+
+    function setActiveBg(id) {
+      previews.forEach(preview => {
+        if (preview.dataset.id === id) {
+          preview.classList.add('active');
+          lastActive = preview;
+        } else {
+          preview.classList.remove('active');
+        }
+      });
+    }
+    function clearBg() {
+      previews.forEach(preview => preview.classList.remove('active'));
+      lastActive = null;
+    }
+
+    gridItems.forEach(item => {
+      item.addEventListener('mouseenter', e => setActiveBg(item.dataset.bg));
+      item.addEventListener('focus', e => setActiveBg(item.dataset.bg));
+      item.addEventListener('mouseleave', e => clearBg());
+      item.addEventListener('blur', e => clearBg());
+      // For touch devices: tap to show, tap elsewhere to clear
+      item.addEventListener('touchstart', e => {
+        setActiveBg(item.dataset.bg);
+      });
+    });
+
+    // Hide background if clicking/tapping outside
+    document.body.addEventListener('touchstart', function(e) {
+      if (!e.target.classList.contains('grid-item')) clearBg();
+    }, {passive: true});
+  </script>
 </body>
 </html>
