@@ -6,17 +6,9 @@
   <title>Works – Co Smith</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      background: #0e0e0e;
-      color: #c9ffd7;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    /* Blurred background image (ALWAYS visible and behind everything) */
+    /* Only custom styles for blurred background image */
     .works-blur-bg {
       position: fixed;
       top: 0; left: 0;
@@ -28,102 +20,21 @@
       pointer-events: none;
       user-select: none;
     }
-    /* Headings */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      font-weight: 700;
-      color: #c9ffd7;
-      letter-spacing: 0.13em;
-      text-align: center;
-      margin: 0;
-    }
-    h1 {
-      font-size: 2.3rem;
-      text-transform: uppercase;
-      margin-top: 2.3rem;
-      margin-bottom: 2.3rem;
-    }
-    @media (max-width: 700px) {
-      h1 {
-        font-size: 2rem;
-        margin-top: 1.4rem;
-        margin-bottom: 1.2rem;
-      }
-    }
-    /* Navigation */
-    nav {
-      background: #111;
-      padding: 1rem 0.5rem;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-    .logo {
-      font-size: 2rem;
-      color: #c9ffd7;
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 1rem;
-      letter-spacing: 0.06em;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .logo:hover,
-    .logo:focus {
-      color: #a7ffb7;
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .nav-links a {
-      color: #c9ffd7;
-      text-decoration: none;
-      font-size: 1.2rem;
-      padding: 0.5rem 0.8rem;
-      border-radius: 6px;
-      background: none;
-      border: none;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s, background 0.2s;
-    }
-    .nav-links a[aria-current="page"] {
-      color: #a7ffb7;
-      text-decoration: underline;
-      background: #222;
-    }
-    .nav-links a:hover,
-    .nav-links a:focus {
-      color: #a7ffb7;
-      text-decoration: underline;
-      background: #222;
-    }
-    /* Works List */
     main.works-main {
-      flex: 1;
+      position: relative;
+      z-index: 1;
+      width: 100vw;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-top: 0;
-      min-height: 90vh;
-      position: relative;
-      z-index: 1;
-      width: 100vw;
       overflow: hidden;
     }
     .works-list {
       list-style: none;
       padding: 0;
-      margin: 0 auto;
+      margin: 0 auto 3rem auto;
       width: 100%;
       max-width: 430px;
       display: flex;
@@ -145,23 +56,28 @@
       border: none;
       background: none;
       box-shadow: none;
-      transition: color 0.2s;
+      transition: color 0.2s, background 0.2s;
       font-family: 'Barlow Condensed', Arial, sans-serif;
+      border-radius: 6px;
+      outline: none;
+      position: relative;
     }
     .works-link:visited,
-    .works-link:active,
+    .works-link:active {
+      color: #c9ffd7;
+    }
     .works-link:hover,
     .works-link:focus {
-      color: #a7ffb7;
+      color: #0e0e0e;
+      background: #a7ffb7;
       text-decoration: none;
-      border: none;
-      background: none;
-      box-shadow: none;
+      outline: 2px solid #a7ffb7;
+      z-index: 3;
     }
     .works-title {
       font-size: 1.18rem;
       font-weight: 700;
-      color: #c9ffd7;
+      color: inherit;
       letter-spacing: 0.01em;
       margin-bottom: 0.13em;
       display: block;
@@ -189,22 +105,12 @@
         font-size: 0.78rem;
       }
     }
-    footer.copyright {
-      text-align: center;
-      color: #a7ffb7;
-      padding: 2.2rem 0 1.2rem 0;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      background: none;
-      position: relative;
-      z-index: 2;
-    }
   </style>
 </head>
 <body>
   <!-- Blurred background image (always visible, behind everything) -->
   <img src="images/ej blur.png" alt="" class="works-blur-bg" aria-hidden="true">
+  <!-- Header and nav copied from index.html for consistency -->
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
