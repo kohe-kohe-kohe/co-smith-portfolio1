@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Only custom styles for blurred background image */
     .works-blur-bg {
       position: fixed;
       top: 0; left: 0;
@@ -52,27 +51,29 @@
       font-size: 1.18rem;
       font-weight: 700;
       letter-spacing: 0.04em;
-      padding: 0.13em 0.1em;
+      padding: 0;
       border: none;
-      background: none;
-      box-shadow: none;
-      transition: color 0.2s, background 0.2s;
+      background: none !important;
+      box-shadow: none !important;
+      transition: color 0.2s, text-decoration 0.2s;
       font-family: 'Barlow Condensed', Arial, sans-serif;
-      border-radius: 6px;
+      border-radius: 0;
       outline: none;
       position: relative;
     }
     .works-link:visited,
     .works-link:active {
       color: #c9ffd7;
+      background: none;
+      box-shadow: none;
     }
     .works-link:hover,
     .works-link:focus {
-      color: #0e0e0e;
-      background: #a7ffb7;
-      text-decoration: none;
-      outline: 2px solid #a7ffb7;
-      z-index: 3;
+      color: #a7ffb7;
+      text-decoration: underline;
+      background: none !important;
+      box-shadow: none !important;
+      outline: none;
     }
     .works-title {
       font-size: 1.18rem;
@@ -83,6 +84,8 @@
       display: block;
       font-family: 'Barlow Condensed', Arial, sans-serif;
       text-transform: uppercase;
+      background: none !important;
+      box-shadow: none !important;
     }
     .works-date {
       font-size: 0.92rem;
@@ -92,6 +95,8 @@
       letter-spacing: 0.04em;
       margin-left: 0.1em;
       font-family: 'Barlow Condensed', Arial, sans-serif;
+      background: none !important;
+      box-shadow: none !important;
     }
     @media (max-width: 700px) {
       .works-list {
@@ -108,9 +113,7 @@
   </style>
 </head>
 <body>
-  <!-- Blurred background image (always visible, behind everything) -->
   <img src="images/ej blur.png" alt="" class="works-blur-bg" aria-hidden="true">
-  <!-- Header and nav copied from index.html for consistency -->
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
@@ -131,7 +134,7 @@
       </li>
       <li>
         <a class="works-link" href="Oxide.html">
-          <span class="works-title">POxide5</span>
+          <span class="works-title">Oxide</span>
           <span class="works-date">2025</span>
         </a>
       </li>
@@ -143,7 +146,7 @@
       </li>
       <li>
         <a class="works-link" href="Print.html">
-          <span class="works-title">Prinmaking</span>
+          <span class="works-title">Printmaking</span>
           <span class="works-date">2024</span>
         </a>
       </li> 
@@ -165,7 +168,6 @@
           <span class="works-date">2023</span>
         </a>
       </li>
-    
     </ul>
   </main>
   <footer class="copyright">
