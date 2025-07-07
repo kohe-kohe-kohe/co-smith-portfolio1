@@ -6,7 +6,6 @@
   <title>East Jesus – Co Smith</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       background: #0e0e0e;
@@ -17,9 +16,21 @@
       display: flex;
       flex-direction: column;
     }
+    h1 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-weight: 700;
+      color: #c9ffd7;
+      letter-spacing: 0.13em;
+      text-align: center;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      margin-top: 2.3rem;
+      margin-bottom: 2.3rem;
+    }
     nav {
       background: #111;
       padding: 1rem 0.5rem;
+      font-family: inherit;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -51,66 +62,53 @@
     .nav-links a:hover,
     .nav-links a:focus {
       background: none;
-      color: #c9ffd7;
+      color: #a7ffb7;
       text-decoration: none;
     }
-    main.east-jesus-main {
-      flex: 1;
+    .gallery {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 6vw;
-      min-height: 90vh;
-      position: relative;
-      z-index: 1;
+      gap: 3rem;
       width: 100vw;
-      overflow: hidden;
+      max-width: 100vw;
+      padding-bottom: 2rem;
     }
-    h1 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      margin-bottom: 2.2rem;
-      text-align: center;
-      text-transform: uppercase;
-      color: #c9ffd7;
-      z-index: 2;
-      position: relative;
-    }
-    .ej-description {
-      max-width: 530px;
-      margin: 0 auto 2.2rem auto;
-      font-size: 1.07rem;
-      line-height: 1.6;
-      color: #c9ffd7;
-      text-align: center;
-      opacity: 0.96;
-    }
-    .ej-images {
+    .gallery-image-wrapper {
+      width: 100vw;
+      max-width: 100vw;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 1.3rem;
-      width: 100%;
     }
-    .ej-images img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 7px;
-      box-shadow: 0 2px 22px 0 rgba(0,0,0,0.18);
+    .gallery-image {
+      width: 100vw;
+      height: 90vh;
+      max-width: 100vw;
+      max-height: 90vh;
+      object-fit: contain;
+      background: #222;
       display: block;
-      background: #191919;
+      border-radius: 0;
+      box-shadow: 0px 6px 44px 0px rgba(0,0,0,0.28);
+      margin: 0;
+      outline: none;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
+      .gallery-image {
+        height: 60vh;
+        max-height: 60vh;
+      }
+    }
+    @media (max-width: 600px) {
       h1 {
-        font-size: 1.3rem;
+        font-size: 2rem;
+        margin-top: 1.4rem;
+        margin-bottom: 1.2rem;
       }
-      .ej-description {
-        font-size: 0.93rem;
-        padding: 0 2vw;
-      }
-      .ej-images img {
-        max-width: 97vw;
+      .gallery-image {
+        height: 45vh;
+        max-height: 55vw;
       }
     }
     footer.copyright {
@@ -134,19 +132,49 @@
       <a href="contact.html">Contact</a>
     </div>
   </nav>
-  <main class="east-jesus-main">
+  <main>
     <h1>East Jesus</h1>
-    <div class="ej-description">
-      <!-- Replace this with your description or artist statement about East Jesus -->
-      A series exploring the unique art installations and spirit of East Jesus, captured through photography and mixed media. <br>
-      <!-- You can expand this description as needed -->
-    </div>
-    <div class="ej-images">
-      <!-- Replace these with your own images and captions -->
-      <img src="images/east-jesus-1.jpg" alt="East Jesus work 1">
-      <img src="images/east-jesus-2.jpg" alt="East Jesus work 2">
-      <!-- Add more images as needed -->
-    </div>
+    <section class="gallery">
+      <div class="gallery-image-wrapper">
+        <img src="images/ej1.JPG" alt="East Jesus Image 1" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej2.JPG" alt="East Jesus Image 2" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej3.JPG" alt="East Jesus Image 3" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej4.JPG" alt="East Jesus Image 4" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej5.JPG" alt="East Jesus Image 5" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej6.JPG" alt="East Jesus Image 6" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej7.JPG" alt="East Jesus Image 7" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej8.JPG" alt="East Jesus Image 8" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej9.JPG" alt="East Jesus Image 9" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej10.JPG" alt="East Jesus Image 10" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej11.JPG" alt="East Jesus Image 11" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej12.JPG" alt="East Jesus Image 12" class="gallery-image">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/ej13.JPG" alt="East Jesus Image 13" class="gallery-image">
+      </div>
+    </section>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
