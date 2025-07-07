@@ -397,13 +397,15 @@ nav {
   border: none !important;
   opacity: 1 !important;
 }
+
+/* Only align grid-item text to the left for works grid */
 .works-grid {
   display: grid;
   grid-template-columns: 1fr !important;
-  max-width: 320px;      /* narrower grid */
+  max-width: 320px;
   width: 100%;
-  margin: 0 auto 2rem auto;  /* less bottom margin */
-  gap: 0.7rem 0;         /* less vertical gap between items */
+  margin: 0 auto 2rem auto;
+  gap: 0.7rem 0;
   justify-items: start;
 }
 .works-grid .grid-item {
@@ -413,6 +415,7 @@ nav {
   padding-left: 0.5em;
 }
 
+/* Only align info page text to the left */
 .info-main,
 .info-main h1,
 .info-main h2,
