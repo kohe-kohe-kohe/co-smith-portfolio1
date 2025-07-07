@@ -397,3 +397,10 @@ nav {
   border: none !important;
   opacity: 1 !important;
 }
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 400px;  /* You can adjust this width */
+  width: 100%;
+  margin: 0 auto 3.5rem auto;
+}
