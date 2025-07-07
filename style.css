@@ -412,13 +412,22 @@ nav {
   padding-left: 0.5em;
 }
 
-/* Optionally, make sure all text inside main is left-aligned */
-main, main h1, main h2, main p, main ul, main ol, main li {
-  text-align: left !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
+.info-main,
+.info-main h1,
+.info-main h2,
+.info-main p,
+.info-main ul,
+.info-main ol,
+.info-main li {
+  text-align: left;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 0;
 }
-
-main {
-  align-items: flex-start !important;
+.info-main {
+  max-width: 700px;
+  margin-left: 2.5vw;
+  margin-right: auto;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
 }
