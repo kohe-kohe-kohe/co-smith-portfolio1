@@ -16,6 +16,9 @@
       display: flex;
       flex-direction: column;
     }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+    }
     nav {
       background: #111;
       padding: 1rem 0.5rem;
@@ -138,37 +141,9 @@
         max-width: 98vw;
         gap: 0.5rem;
       }
-      /* Only affect works-list and links, not headers */
       .works-link, .works-date {
         font-size: 0.83rem;
       }
-    }
-    /* Restore header font sizes for h1, h2, h3, etc. */
-    h1 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      margin: 2.2rem 0 2.5rem 0;
-      text-align: center;
-      text-transform: uppercase;
-      color: #c9ffd7;
-      z-index: 2;
-      position: relative;
-    }
-    h2 {
-      font-size: 1.7rem;
-      font-weight: 700;
-      margin: 2rem 0 1.5rem 0;
-      color: #c9ffd7;
-      letter-spacing: 0.07em;
-      text-align: center;
-    }
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 1.2rem 0 1rem 0;
-      color: #c9ffd7;
-      letter-spacing: 0.06em;
     }
     footer.copyright {
       text-align: center;
@@ -200,6 +175,7 @@
       <img src="images/2025-crop.jpg" class="preview-bg" data-id="2025" alt="" />
       <img src="images/2024-crop.jpg" class="preview-bg" data-id="2024" alt="" />
       <img src="images/2023-crop.jpg" class="preview-bg" data-id="2023" alt="" />
+      <img src="images/east-jesus-crop.jpg" class="preview-bg" data-id="eastjesus" alt="" />
       <!-- Add more as needed -->
     </div>
     <ul class="works-list">
@@ -231,6 +207,11 @@
       <li>
         <a class="works-link" href="works-2023.html" data-bg="2023">
           <span class="works-date">2023</span>
+        </a>
+      </li>
+      <li>
+        <a class="works-link" href="east-jesus.html" data-bg="eastjesus">
+          <span class="works-date">East Jesus</span>
         </a>
       </li>
     </ul>
