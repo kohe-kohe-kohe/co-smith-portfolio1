@@ -399,11 +399,12 @@ nav {
 }
 .works-grid {
   display: grid;
-  grid-template-columns: 1fr !important;    /* Always ONE column */
-  max-width: 400px;                         /* Set width for vertical column */
+  grid-template-columns: 1fr !important;
+  max-width: 320px;      /* narrower grid */
   width: 100%;
-  margin: 0 auto 3.5rem auto;
-  justify-items: start;                     /* Left-align grid items */
+  margin: 0 auto 2rem auto;  /* less bottom margin */
+  gap: 0.7rem 0;         /* less vertical gap between items */
+  justify-items: start;
 }
 .works-grid .grid-item {
   text-align: left;
