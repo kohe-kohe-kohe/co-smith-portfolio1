@@ -8,11 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* NAV STYLES */
+    body {
+      background: #0e0e0e;
+      color: #c9ffd7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
     nav {
       background: #111;
       padding: 1rem 0.5rem;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-family: inherit;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -23,68 +31,29 @@
       text-decoration: none;
       font-weight: bold;
       margin-left: 1rem;
+      letter-spacing: 0.06em;
     }
     .nav-links {
       display: flex;
       gap: 1.5rem;
       align-items: center;
     }
-    .nav-links a, .dropbtn {
+    .nav-links a {
       color: #c9ffd7;
       text-decoration: none;
       font-size: 1.2rem;
       padding: 0.5rem 0.8rem;
       border-radius: 6px;
-      transition: background 0.2s;
       background: none;
       border: none;
       font-family: inherit;
       cursor: pointer;
+      transition: none;
     }
-    .nav-links a:hover, .dropbtn:hover, .dropbtn.active {
-      background: #a7ffb7;
-      color: #111;
+    .nav-links a:hover {
+      background: none;
+      color: #fff;
     }
-    /* Dropdown Styles */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      left: 0;
-      top: 110%;
-      background-color: #181b1b;
-      min-width: 170px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.10);
-      border-radius: 0 0 8px 8px;
-      z-index: 10;
-      overflow: hidden;
-    }
-    .dropdown-content a {
-      color: #c9ffd7;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      white-space: nowrap;
-      transition: background 0.2s, color 0.2s;
-    }
-    .dropdown-content a:hover {
-      background-color: #a7ffb7;
-      color: #0e0e0e;
-    }
-    /* Show dropdown on hover (desktop) */
-    @media (hover: hover) and (pointer: fine) {
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-    }
-    /* Show dropdown on tap/click (mobile) */
-    .dropdown.open .dropdown-content {
-      display: block;
-    }
-    /* Responsive nav tweaks */
     @media (max-width: 700px) {
       nav {
         flex-direction: column;
@@ -97,112 +66,171 @@
         align-items: flex-start;
         margin-left: 1rem;
       }
-      .dropdown-content {
-        position: static;
-        min-width: 100%;
-        box-shadow: none;
-      }
     }
-    /* GALLERY styles from above ... (unchanged) */
+    /* Works page proper */
+    main {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3vw 2vw 5vw 2vw;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      margin: 2.2rem 0 2.5rem 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: #c9ffd7;
+    }
     .works-options {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin: 2.5rem 0 2.5rem 0;
+      gap: 2.5rem;
+      margin: 2rem 0 2.5rem 0;
       flex-wrap: wrap;
+      width: 100%;
     }
     .works-option {
       text-align: center;
       text-decoration: none;
       color: #c9ffd7;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      font-size: 1.3rem;
-      transition: transform 0.2s, color 0.2s;
-      border-radius: 10px;
-      overflow: hidden;
+      font-family: inherit;
+      font-size: 1.18rem;
+      border-radius: 12px;
       background: #181b1b;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      width: 260px;
-    }
-    .works-option:hover {
-      color: #0e0e0e;
-      background: #a7ffb7;
-      transform: scale(1.04);
+      width: 245px;
+      box-shadow: none;
+      transition: filter 0.22s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .works-option img {
       width: 100%;
-      height: 160px;
+      height: 140px;
       object-fit: cover;
-      border-radius: 10px 10px 0 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      border-radius: 12px 12px 0 0;
+      background: #222;
     }
     .works-option-label {
       padding: 1rem 0.5rem;
-      background: #222;
-      border-radius: 0 0 10px 10px;
-      font-weight: bold;
+      background: #181b1b;
+      width: 100%;
+      border-radius: 0 0 12px 12px;
+      font-weight: 600;
       font-size: 1.13rem;
+      letter-spacing: 0.04em;
+    }
+    .works-option:hover, .works-option:focus {
+      filter: brightness(1.07) contrast(1.09) grayscale(0.03);
+      transform: scale(1.025);
+      color: #fff;
+      background: #181b1b;
     }
     .works-section-title {
       margin-top: 3.5rem;
       margin-bottom: 1.2rem;
       color: #a7ffb7;
-      font-size: 1.26rem;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 1.23rem;
+      font-family: inherit;
       letter-spacing: 0.03em;
       text-align: center;
+      font-weight: 700;
     }
     .works-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.5rem;
+      gap: 2.2rem 2.6rem;
       margin: 2rem auto 2.5rem auto;
       max-width: 1000px;
       padding: 0 1rem;
+      width: 100%;
+      justify-items: center;
     }
     .gallery-item {
       text-align: center;
       cursor: pointer;
-      transition: transform 0.2s;
       text-decoration: none;
       color: #c9ffd7;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-    }
-    .gallery-item:hover {
-      transform: scale(1.04);
-      color: #0e0e0e;
+      font-family: inherit;
+      background: none;
+      transition: filter 0.19s, transform 0.18s;
+      border-radius: 10px;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .gallery-item img {
       width: 100%;
-      height: 180px;
+      max-width: 220px;
+      height: 164px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      margin-bottom: 0.8rem;
+      background: #222;
+      margin-bottom: 0.65rem;
+      box-shadow: none;
     }
     .gallery-item-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
+      font-size: 1.08rem;
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #a7ffb7;
+      background: none;
+    }
+    .gallery-item:hover, .gallery-item:focus {
+      filter: brightness(1.11) contrast(1.10) grayscale(0.02);
+      transform: scale(1.027);
+      color: #fff;
+      background: none;
     }
     @media (max-width: 700px){
+      main {
+        max-width: 98vw;
+        padding: 3vw 2vw 6vw 2vw;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
       .works-options {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+        width: 100%;
       }
       .works-option {
-        width: 98vw;
-        max-width: 340px;
+        width: 97vw;
+        max-width: 320px;
       }
       .works-option img {
-        height: 120px;
+        height: 100px;
       }
       .works-gallery {
         grid-template-columns: 1fr;
+        gap: 1.4rem 0;
+      }
+      .gallery-item {
+        width: 97vw;
+        max-width: 320px;
       }
       .gallery-item img {
-        height: 130px;
+        height: 110px;
       }
+    }
+    footer.copyright {
+      text-align: center;
+      color: #a7ffb7;
+      padding: 2.2rem 0 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      font-family: inherit;
+      background: none;
     }
   </style>
 </head>
@@ -211,20 +239,14 @@
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
       <a href="info.html">Info</a>
-      <div class="dropdown" id="works-dropdown">
-        <button class="dropbtn" id="works-dropbtn" aria-haspopup="true" aria-expanded="false">Works &#9662;</button>
-        <div class="dropdown-content" role="menu">
-          <a href="#series" role="menuitem">By Series</a>
-          <a href="#year" role="menuitem">By Year</a>
-        </div>
-      </div>
+      <a href="works.html" aria-current="page">Works</a>
       <a href="store.html">Store</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
   <main>
     <h1>Works</h1>
-    <div class="works-options">
+    <nav class="works-options" aria-label="Browse works">
       <a class="works-option" href="#series">
         <img src="images/series-thumb.jpg" alt="By Series">
         <div class="works-option-label">Browse by Series</div>
@@ -233,10 +255,10 @@
         <img src="images/year-thumb.jpg" alt="By Year">
         <div class="works-option-label">Browse by Year</div>
       </a>
-    </div>
+    </nav>
     <!-- SERIES SECTION -->
     <div id="series" class="works-section-title">Works by Series</div>
-    <div class="works-gallery">
+    <section class="works-gallery" aria-label="Works by series">
       <a class="gallery-item" href="series-dreams.html">
         <img src="images/dreams-thumb.jpg" alt="Dreams Series">
         <div class="gallery-item-title">Dreams</div>
@@ -250,10 +272,10 @@
         <div class="gallery-item-title">Portraits</div>
       </a>
       <!-- Add more series as needed -->
-    </div>
+    </section>
     <!-- YEAR SECTION -->
     <div id="year" class="works-section-title">Works by Year</div>
-    <div class="works-gallery">
+    <section class="works-gallery" aria-label="Works by year">
       <a class="gallery-item" href="works-2025.html">
         <img src="images/2025-thumb.jpg" alt="Works from 2025">
         <div class="gallery-item-title">2025</div>
@@ -267,33 +289,10 @@
         <div class="gallery-item-title">2023</div>
       </a>
       <!-- Add more years as needed -->
-    </div>
+    </section>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
-  <script>
-    // Dropdown tap/click for mobile
-    document.addEventListener('DOMContentLoaded', function () {
-      var dropdown = document.getElementById('works-dropdown');
-      var dropbtn = document.getElementById('works-dropbtn');
-
-      // Toggle dropdown on click
-      dropbtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        dropdown.classList.toggle('open');
-        // Update aria-expanded for accessibility
-        dropbtn.setAttribute('aria-expanded', dropdown.classList.contains('open'));
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function (event) {
-        if (!dropdown.contains(event.target)) {
-          dropdown.classList.remove('open');
-          dropbtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-  </script>
 </body>
 </html>
