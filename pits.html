@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pits – Co Smith</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pits-blur-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      filter: blur(24px) brightness(0.6);
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+    .works-gallery,
+    .works-section-title,
+    h1, nav, footer {
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 900px) {
+      .pits-blur-bg {
+        filter: blur(14px) brightness(0.65);
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="images/pits-blur.png" alt="" class="pits-blur-bg" aria-hidden="true">
+  <nav>
+    <a class="logo" href="index.html">Co Smith</a>
+    <div class="nav-links">
+      <a href="info.html">Info</a>
+      <a href="works.html">Works</a>
+      <a href="store.html">Store</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <main>
+    <h1>Pits</h1>
+    <div class="works-section-title">Gallery</div>
+    <div class="works-gallery">
+      <a class="gallery-item" href="images/pits1.jpg" target="_blank">
+        <img src="images/pits1.jpg" alt="Pits 1">
+        <div class="gallery-item-title">Pits 1</div>
+      </a>
+      <a class="gallery-item" href="images/pits2.jpg" target="_blank">
+        <img src="images/pits2.jpg" alt="Pits 2">
+        <div class="gallery-item-title">Pits 2</div>
+      </a>
+      <a class="gallery-item" href="images/pits3.jpg" target="_blank">
+        <img src="images/pits3.jpg" alt="Pits 3">
+        <div class="gallery-item-title">Pits 3</div>
+      </a>
+      <a class="gallery-item" href="images/pits4.jpg" target="_blank">
+        <img src="images/pits4.jpg" alt="Pits 4">
+        <div class="gallery-item-title">Pits 4</div>
+      </a>
+      <a class="gallery-item" href="images/pits5.jpg" target="_blank">
+        <img src="images/pits5.jpg" alt="Pits 5">
+        <div class="gallery-item-title">Pits 5</div>
+      </a>
+      <!-- Add more images as needed -->
+    </div>
+  </main>
+  <footer class="copyright">
+    &copy; 2025 Co Smith. All rights reserved.
+  </footer>
+</body>
+</html>
