@@ -6,98 +6,197 @@
   <title>Parlour – Co Smith</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <style>
-    .parlour-blur-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      filter: blur(24px) brightness(0.6);
-      z-index: 0;
-      pointer-events: none;
-      user-select: none;
-      opacity: 1;
-      transition: opacity 0.5s;
+    html, body {
+      background: #0e0e0e;
+      color: #c9ffd7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
     }
-    .works-gallery {
+    h1 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-weight: 700;
+      color: #c9ffd7;
+      letter-spacing: 0.13em;
+      text-align: center;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      margin-top: 2.3rem;
+      margin-bottom: 2.3rem;
+    }
+    nav {
+      background: #111;
+      padding: 1rem 0.5rem;
+      font-family: inherit;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-top: 2rem;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 2;
+      justify-content: space-between;
+      align-items: center;
     }
-    .gallery-item {
+    .logo {
+      font-size: 2rem;
+      color: #c9ffd7;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 1rem;
+      letter-spacing: 0.06em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #c9ffd7;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background: none;
+      color: #a7ffb7;
+      text-decoration: none;
+    }
+    .gallery {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-decoration: none;
-      color: #c9ffd7;
-      width: 260px;
-      max-width: 96vw;
+      gap: 2rem;
+      width: 100vw;
+      max-width: 100vw;
+      padding-bottom: 2rem;
+      margin: 0;
     }
-    .gallery-item img {
+    .gallery-image-wrapper {
       width: 100%;
-      max-width: 260px;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.14);
-      margin-bottom: 0.5rem;
-      transition: transform 0.2s;
-      background: #181818;
-      object-fit: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .gallery-item img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    .gallery-image {
+      width: 92vw;
+      max-width: 1040px;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0px 6px 44px 0px rgba(0,0,0,0.18);
+      margin: 0;
+      outline: none;
+      border: none;
+      cursor: zoom-in;
+      transition: filter 0.2s, box-shadow 0.2s;
+      background: none;
     }
-    .gallery-item-title {
-      font-size: 1rem;
-      font-weight: 600;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      letter-spacing: 0.04em;
-      color: #a7ffb7;
-      text-align: center;
-      margin-bottom: 0.3rem;
+    .gallery-image:hover,
+    .gallery-image:focus {
+      filter: brightness(1.1) contrast(1.05);
+      box-shadow: 0px 10px 44px 0px rgba(0,0,0,0.34);
     }
-    .works-section-title {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      font-weight: 700;
-      font-size: 1.35rem;
-      color: #a7ffb7;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      text-align: center;
-      z-index: 2;
-      position: relative;
+    /* Lightbox (zoom) styles */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.18s;
     }
-    h1, nav, footer {
-      position: relative;
-      z-index: 2;
+    .lightbox-overlay.active {
+      display: flex;
+    }
+    .lightbox-image {
+      max-width: 95vw;
+      max-height: 95vh;
+      border-radius: 10px;
+      box-shadow: 0px 18px 80px 10px rgba(0,0,0,0.43);
+      outline: none;
+      border: none;
+      background: none;
+      cursor: zoom-out;
+      animation: zoomIn 0.22s cubic-bezier(.5,1.6,.3,1);
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.88); opacity: 0.7;}
+      to { transform: scale(1); opacity: 1;}
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 28px;
+      right: 36px;
+      font-size: 2.9rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10001;
+      padding: 0;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.18s;
+    }
+    .lightbox-close:hover, .lightbox-close:focus {
+      opacity: 1;
     }
     @media (max-width: 900px) {
-      .parlour-blur-bg {
-        filter: blur(14px) brightness(0.65);
-      }
-      .works-gallery {
-        gap: 1rem;
-      }
-      .gallery-item {
+      .gallery-image {
         width: 98vw;
         max-width: 98vw;
+        max-height: 60vh;
       }
-      .gallery-item img {
+      .lightbox-image {
         max-width: 98vw;
+        max-height: 80vh;
       }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 1.4rem;
+        margin-bottom: 1.2rem;
+      }
+      .gallery-image {
+        width: 99vw;
+        max-width: 100vw;
+        max-height: 38vh;
+      }
+      .lightbox-image {
+        max-width: 99vw;
+        max-height: 54vh;
+      }
+      .lightbox-close {
+        top: 12px;
+        right: 16px;
+        font-size: 2.1rem;
+      }
+    }
+    footer.copyright {
+      text-align: center;
+      color: #a7ffb7;
+      padding: 2.2rem 0 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      font-family: inherit;
+      background: none;
     }
   </style>
 </head>
 <body>
-  <img src="images/parlour-blur.png" alt="" class="parlour-blur-bg" aria-hidden="true">
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
@@ -109,80 +208,107 @@
   </nav>
   <main>
     <h1>Parlour</h1>
-    <div class="works-section-title">Gallery</div>
-    <div class="works-gallery">
-      <a class="gallery-item" href="images/pp1.jpg" target="_blank">
-        <img src="images/pp1.jpg" alt="Parlour 1">
-        <div class="gallery-item-title">Parlour 1</div>
-      </a>
-      <a class="gallery-item" href="images/pp2.jpg" target="_blank">
-        <img src="images/pp2.jpg" alt="Parlour 2">
-        <div class="gallery-item-title">Parlour 2</div>
-      </a>
-      <a class="gallery-item" href="images/pp3.jpg" target="_blank">
-        <img src="images/pp3.jpg" alt="Parlour 3">
-        <div class="gallery-item-title">Parlour 3</div>
-      </a>
-      <a class="gallery-item" href="images/pp4.jpg" target="_blank">
-        <img src="images/pp4.jpg" alt="Parlour 4">
-        <div class="gallery-item-title">Parlour 4</div>
-      </a>
-      <a class="gallery-item" href="images/pp5.jpg" target="_blank">
-        <img src="images/pp5.jpg" alt="Parlour 5">
-        <div class="gallery-item-title">Parlour 5</div>
-      </a>
-      <a class="gallery-item" href="images/pp6.jpg" target="_blank">
-        <img src="images/pp6.jpg" alt="Parlour 6">
-        <div class="gallery-item-title">Parlour 6</div>
-      </a>
-      <a class="gallery-item" href="images/pp7.jpg" target="_blank">
-        <img src="images/pp7.jpg" alt="Parlour 7">
-        <div class="gallery-item-title">Parlour 7</div>
-      </a>
-      <a class="gallery-item" href="images/pp8.jpg" target="_blank">
-        <img src="images/pp8.jpg" alt="Parlour 8">
-        <div class="gallery-item-title">Parlour 8</div>
-      </a>
-      <a class="gallery-item" href="images/pp9.jpg" target="_blank">
-        <img src="images/pp9.jpg" alt="Parlour 9">
-        <div class="gallery-item-title">Parlour 9</div>
-      </a>
-      <a class="gallery-item" href="images/pp10.jpg" target="_blank">
-        <img src="images/pp10.jpg" alt="Parlour 10">
-        <div class="gallery-item-title">Parlour 10</div>
-      </a>
-      <a class="gallery-item" href="images/pp11.jpg" target="_blank">
-        <img src="images/pp11.jpg" alt="Parlour 11">
-        <div class="gallery-item-title">Parlour 11</div>
-      </a>
-      <a class="gallery-item" href="images/pp12.jpg" target="_blank">
-        <img src="images/pp12.jpg" alt="Parlour 12">
-        <div class="gallery-item-title">Parlour 12</div>
-      </a>
-      <a class="gallery-item" href="images/pp13.jpg" target="_blank">
-        <img src="images/pp13.jpg" alt="Parlour 13">
-        <div class="gallery-item-title">Parlour 13</div>
-      </a>
-      <a class="gallery-item" href="images/pp14.jpg" target="_blank">
-        <img src="images/pp14.jpg" alt="Parlour 14">
-        <div class="gallery-item-title">Parlour 14</div>
-      </a>
-      <a class="gallery-item" href="images/pp15.jpg" target="_blank">
-        <img src="images/pp15.jpg" alt="Parlour 15">
-        <div class="gallery-item-title">Parlour 15</div>
-      </a>
-      <a class="gallery-item" href="images/pp16.jpg" target="_blank">
-        <img src="images/pp16.jpg" alt="Parlour 16">
-        <div class="gallery-item-title">Parlour 16</div>
-      </a>
-      <a class="gallery-item" href="images/pp17.jpg" target="_blank">
-        <img src="images/pp17.jpg" alt="Parlour 17">
-        <div class="gallery-item-title">Parlour 17</div>
-      </a>
-    </div>
+    <section class="gallery">
+      <div class="gallery-image-wrapper">
+        <img src="images/pp1.jpg" alt="Parlour Image 1" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp2.jpg" alt="Parlour Image 2" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp3.jpg" alt="Parlour Image 3" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp4.jpg" alt="Parlour Image 4" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp5.jpg" alt="Parlour Image 5" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp6.jpg" alt="Parlour Image 6" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp7.jpg" alt="Parlour Image 7" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp8.jpg" alt="Parlour Image 8" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp9.jpg" alt="Parlour Image 9" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp10.jpg" alt="Parlour Image 10" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp11.jpg" alt="Parlour Image 11" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp12.jpg" alt="Parlour Image 12" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp13.jpg" alt="Parlour Image 13" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp14.jpg" alt="Parlour Image 14" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp15.jpg" alt="Parlour Image 15" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp16.jpg" alt="Parlour Image 16" class="gallery-image" tabindex="0">
+      </div>
+      <div class="gallery-image-wrapper">
+        <img src="images/pp17.jpg" alt="Parlour Image 17" class="gallery-image" tabindex="0">
+      </div>
+    </section>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
+  <div class="lightbox-overlay" id="lightbox-overlay" tabindex="-1">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-image" class="lightbox-image" src="" alt="">
+  </div>
+  <script>
+    // Lightbox (zoom) functionality
+    const images = document.querySelectorAll('.gallery-image');
+    const overlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    images.forEach(img => {
+      img.addEventListener('click', function () {
+        overlay.classList.add('active');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxImg.focus();
+      });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === "Enter" || e.key === " " || e.keyCode === 13 || e.keyCode === 32) {
+          e.preventDefault();
+          overlay.classList.add('active');
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightboxImg.focus();
+        }
+      });
+    });
+    closeBtn.addEventListener('click', function () {
+      overlay.classList.remove('active');
+      lightboxImg.src = '';
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+        lightboxImg.src = '';
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (overlay.classList.contains('active') && (e.key === 'Escape' || e.keyCode === 27)) {
+        overlay.classList.remove('active');
+        lightboxImg.src = '';
+      }
+    });
+  </script>
 </body>
 </html>
