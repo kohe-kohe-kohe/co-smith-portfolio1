@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     html, body {
-      background: #0e0e0e;
+      background: #000 !important;
       color: #c9ffd7;
       font-family: 'Barlow Condensed', Arial, sans-serif;
       margin: 0;
@@ -38,65 +38,69 @@
       margin-bottom: 2.4rem;
       text-align: center;
     }
-    .wall-container {
-      position: relative;
-      width: 92vw;
-      height: 78vw;
-      max-width: 1200px;
-      max-height: 95vh;
+    .wall-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 1.6vw;
+      width: 90vw;
+      max-width: 1100px;
+      aspect-ratio: 4/3;
       margin: 0 auto 3vw auto;
-      background: transparent;
-      overflow: visible;
+      padding: 2vw 0;
     }
-    .page {
-      position: absolute;
-      background: transparent;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5vw;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Main reference layout: adjust left/top/width/height if you want to fine-tune */
-    .page1  { left: 3vw;   top: 2vw;  width: 15vw; height: 12vw; }
-    .page2  { left: 24vw;  top: 1vw;  width: 12vw; height: 10vw; flex-direction: column;}
-    .page3  { left: 42vw;  top: 2vw;  width: 15vw; height: 12vw; }
-    .page4  { left: 4vw;   top: 16vw; width: 15vw; height: 10vw; }
-    .page5  { left: 19vw;  top: 12vw; width: 40vw; height: 25vw; }
-    .page6  { left: 61vw;  top: 12vw; width: 13vw; height: 18vw; }
-    .page7  { left: 6vw;   top: 28vw; width: 15vw; height: 7vw; flex-direction: row;}
-    .page8  { left: 27vw;  top: 39vw; width: 10vw; height: 8vw; }
-    .page9  { left: 39vw;  top: 41vw; width: 12vw; height: 8vw; }
-    .page10 { left: 61vw;  top: 33vw; width: 13vw; height: 10vw; }
-    .page2 img { width: 90%; height: auto; margin: 0.2vw 0; }
-    .page7 img { width: 47%; height: auto; margin: 0 0.2vw; }
-    .page img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      background: #111;
-      border: none;
+    .wall-img {
+      background: #000;
       border-radius: 0;
       box-shadow: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.18s;
       cursor: pointer;
-      transition: transform 0.2s;
+      border: none;
       display: block;
     }
-    .page img:active,
-    .page img:focus,
-    .page img:hover {
-      transform: scale(1.05);
+    .wall-img:hover,
+    .wall-img:focus {
+      transform: scale(1.04);
+      z-index: 2;
     }
-    @media (max-width: 900px) {
-      .wall-container {
+    /* Make us2 2x2 grid area */
+    .img-us2 {
+      grid-column: 2 / span 2;
+      grid-row: 2 / span 2;
+      z-index: 1;
+    }
+    /* Make all images fit their grid cell */
+    .wall-item {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Optional: visually number items for easy reordering */
+    .img-label {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 0.97em;
+      pointer-events: none;
+      z-index: 3;
+      font-family: inherit;
+    }
+
+    @media (max-width: 700px) {
+      .wall-grid {
         width: 99vw;
-        height: 130vw;
-        min-height: 110vw;
-        max-height: unset;
-      }
-      .page {
-        padding: 1vw;
+        gap: 2vw;
       }
     }
     /* Lightbox styles */
@@ -174,35 +178,55 @@
     <div class="series-description">
       A new series exploring [your theme/medium/subject], created between April and May 2025.
     </div>
-    <div class="wall-container">
-      <div class="page page1">
-        <img src="images/us1.jpg" alt="Photo 1" tabindex="0" />
+    <div class="wall-grid">
+      <!-- Row 1 -->
+      <div class="wall-item" style="grid-row: 1; grid-column: 1;">
+        <span class="img-label">us1</span>
+        <img src="images/us1.jpg" alt="us1" class="wall-img" tabindex="0" />
       </div>
-      <div class="page page2">
-        <img src="images/us3.jpg" alt="Photo 3" tabindex="0" />
-        <img src="images/us4.jpg" alt="Photo 4" tabindex="0" />
-        <img src="images/us5.jpg" alt="Photo 5" tabindex="0" />
+      <div class="wall-item" style="grid-row: 1; grid-column: 2;">
+        <span class="img-label">us3</span>
+        <img src="images/us3.jpg" alt="us3" class="wall-img" tabindex="0" />
       </div>
-      <div class="page page3">
-        <img src="images/us6.jpg" alt="Photo 6" tabindex="0" />
+      <div class="wall-item" style="grid-row: 1; grid-column: 3;">
+        <span class="img-label">us4</span>
+        <img src="images/us4.jpg" alt="us4" class="wall-img" tabindex="0" />
       </div>
-      <div class="page page4">
-        <img src="images/us7.jpg" alt="Photo 7" tabindex="0" />
+      <div class="wall-item" style="grid-row: 1; grid-column: 4;">
+        <span class="img-label">us5</span>
+        <img src="images/us5.jpg" alt="us5" class="wall-img" tabindex="0" />
       </div>
-      <div class="page page5">
-        <img src="images/us2.jpg" alt="Photo 2 (center large)" tabindex="0" />
+      <!-- Row 2 & 3: us2 is 2x2 here -->
+      <div class="wall-item img-us2">
+        <span class="img-label">us2 (main)</span>
+        <img src="images/us2.jpg" alt="us2" class="wall-img" tabindex="0" />
       </div>
-      <div class="page page6">
-        <img src="images/us8.jpg" alt="Photo 8" tabindex="0" />
+      <div class="wall-item" style="grid-row: 2; grid-column: 1;">
+        <span class="img-label">us6</span>
+        <img src="images/us6.jpg" alt="us6" class="wall-img" tabindex="0" />
       </div>
-      <div class="page page7">
-        <img src="images/us9.jpg" alt="Photo 9" tabindex="0" />
-        <img src="images/us10.jpg" alt="Photo 10" tabindex="0" />
+      <div class="wall-item" style="grid-row: 2; grid-column: 4;">
+        <span class="img-label">us7</span>
+        <img src="images/us7.jpg" alt="us7" class="wall-img" tabindex="0" />
       </div>
-      <div class="page page8">
-        <img src="images/us11.jpg" alt="Photo 11" tabindex="0" />
+      <div class="wall-item" style="grid-row: 3; grid-column: 1;">
+        <span class="img-label">us8</span>
+        <img src="images/us8.jpg" alt="us8" class="wall-img" tabindex="0" />
       </div>
-      <!-- Add more .page divs if you expand your wall -->
+      <div class="wall-item" style="grid-row: 3; grid-column: 4;">
+        <span class="img-label">us9</span>
+        <img src="images/us9.jpg" alt="us9" class="wall-img" tabindex="0" />
+      </div>
+      <!-- Row 4 -->
+      <div class="wall-item" style="grid-row: 4; grid-column: 1;">
+        <span class="img-label">us10</span>
+        <img src="images/us10.jpg" alt="us10" class="wall-img" tabindex="0" />
+      </div>
+      <div class="wall-item" style="grid-row: 4; grid-column: 2;">
+        <span class="img-label">us11</span>
+        <img src="images/us11.jpg" alt="us11" class="wall-img" tabindex="0" />
+      </div>
+      <!-- You can add or remove wall-item blocks as needed. -->
     </div>
   </main>
   <footer class="copyright">
@@ -215,7 +239,7 @@
   </div>
   <script>
     // Lightbox functionality
-    const images = document.querySelectorAll('.wall-container img');
+    const images = document.querySelectorAll('.wall-img');
     const overlay = document.getElementById('lightbox-overlay');
     const lightboxImg = document.getElementById('lightbox-image');
     const closeBtn = document.getElementById('lightbox-close');
