@@ -4,6 +4,94 @@
   <meta charset="UTF-8">
   <title>Untitled – APR/MAY ’25 – Co Smith</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .wall-container {
+      position: relative;
+      width: 92vw;
+      height: 78vw;
+      max-width: 1100px;
+      max-height: 95vh;
+      margin: 2vw auto 3vw auto;
+      background: #bbb;
+      box-shadow: 0 4px 48px rgba(0,0,0,0.18);
+      border-radius: 18px;
+      overflow: visible;
+      margin-bottom: 3rem;
+    }
+    .page {
+      position: absolute;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.24);
+      background: #111;
+      border-radius: 10px;
+      padding: 0.6vw;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5vw;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Position each group/mat */
+    .page1  { left: 4vw;   top: 2vw;  width: 16vw; height: 13vw; }
+    .page2  { left: 28vw;  top: 1vw;  width: 13vw; height: 11vw; flex-direction: column;}
+    .page3  { left: 52vw;  top: 2vw;  width: 15vw; height: 12vw; }
+    .page4  { left: 4vw;   top: 17vw; width: 16vw; height: 11vw; }
+    .page5  { left: 22vw;  top: 13vw; width: 40vw; height: 25vw; display: flex; align-items: center; justify-content: center;}
+    .page6  { left: 65vw;  top: 13vw; width: 14vw; height: 18vw; }
+    .page7  { left: 7vw;   top: 32vw; width: 16vw; height: 8vw; flex-direction: row;}
+    .page8  { left: 29vw;  top: 41vw; width: 11vw; height: 9vw; }
+    .page9  { left: 44vw;  top: 43vw; width: 14vw; height: 9vw; }
+    .page10 { left: 64vw;  top: 36vw; width: 15vw; height: 12vw; }
+    .page11 { left: 67vw;  top: 28vw; width: 9vw; height: 7vw; }
+
+    .page img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border: 3px solid #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.17);
+      background: #222;
+    }
+    .page2 img {
+      width: 80%;
+      height: auto;
+      margin: 0.2vw 0;
+    }
+    .page7 img {
+      width: 48%;
+      height: auto;
+      margin: 0 0.2vw;
+    }
+    @media (max-width: 700px) {
+      .wall-container {
+        width: 99vw;
+        height: 130vw;
+        min-height: 80vw;
+        max-height: unset;
+      }
+      .page {
+        padding: 1vw;
+        border-radius: 4vw;
+      }
+    }
+    main {
+      max-width: unset;
+    }
+    h1 {
+      text-align: center;
+      font-family: inherit;
+      font-size: 2.2rem;
+      margin-top: 2.4vw;
+      letter-spacing: 0.09em;
+    }
+    main > p {
+      text-align: center;
+      color: #444;
+      font-size: 1.17rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 2vw;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -18,13 +106,38 @@
   <main>
     <h1>Untitled – APR/MAY ’25</h1>
     <p>
-      <!-- Replace this with your description or statement for this series. Example: -->
       A new series exploring [your theme/medium/subject], created between April and May 2025.
     </p>
-    <!-- Replace/add images below as needed -->
-    <img src="images/untitled-aprmay25-1.jpg" alt="Untitled – APR/MAY ’25, work 1" style="max-width:100%; margin-bottom:1.5rem;">
-    <img src="images/untitled-aprmay25-2.jpg" alt="Untitled – APR/MAY ’25, work 2" style="max-width:100%; margin-bottom:1.5rem;">
-    <!-- Add more images or content as needed -->
+    <div class="wall-container">
+      <div class="page page1">
+        <img src="images/us1.jpg" alt="Photo 1" />
+      </div>
+      <div class="page page2">
+        <img src="images/us2.jpg" alt="Photo 2" />
+        <img src="images/us3.jpg" alt="Photo 3" />
+        <img src="images/us4.jpg" alt="Photo 4" />
+      </div>
+      <div class="page page3">
+        <img src="images/us5.jpg" alt="Photo 5" />
+      </div>
+      <div class="page page4">
+        <img src="images/us6.jpg" alt="Photo 6" />
+      </div>
+      <div class="page page5">
+        <img src="images/us7.jpg" alt="Photo 7 (center large)" />
+      </div>
+      <div class="page page6">
+        <img src="images/us8.jpg" alt="Photo 8" />
+      </div>
+      <div class="page page7">
+        <img src="images/us9.jpg" alt="Photo 9" />
+        <img src="images/us10.jpg" alt="Photo 10" />
+      </div>
+      <div class="page page8">
+        <img src="images/us11.jpg" alt="Photo 11" />
+      </div>
+      <!-- page9, page10, page11 are available for future expansion or fine-tuning -->
+    </div>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
