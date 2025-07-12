@@ -8,13 +8,14 @@
   <style>
     html, body {
       margin: 0; padding: 0;
-      background: #ff69b4;
       color: #c9ffd7;
       font-family: 'Barlow Condensed', Arial, sans-serif;
       height: 100%;
       width: 100%;
       overflow: auto;
       min-height: 100vh;
+      background: #ffc1e3; /* Soft pastel pink! */
+      transition: background 0.8s;
     }
     h1 {
       text-align: center;
@@ -34,7 +35,7 @@
       height: 92vh;
       overflow: auto;
       border-radius: 16px;
-      background: #000;
+      background: transparent;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -44,10 +45,11 @@
       width: 2000px;
       height: 1400px;
       margin: 0 auto;
-      background: #000;
+      background: #ffc1e3; /* Soft pastel pink! */
       border-radius: 16px;
       overflow: visible;
       border: 2px solid #222;
+      box-sizing: border-box;
     }
     .wall-img {
       position: absolute;
@@ -127,7 +129,7 @@
   <h1>Untitled – APR/MAY ’25</h1>
   <div class="instructions">
     Drag images anywhere to arrange your wall.<br>
-    Click <b>Save Layout</b> below to get static HTML. Paste it to lock your arrangement.<br>
+    Click <b>Save Layout</b> to get static HTML. Paste it to lock your arrangement.<br>
     <em>(Scroll to see the whole wall!)</em>
   </div>
   <div class="wall-container">
@@ -225,7 +227,7 @@
     // Save Layout: outputs current HTML for the wall
     document.getElementById('saveBtn').onclick = function() {
       const imgs = wallArea.querySelectorAll('.wall-img');
-      let html = `<div class="wall-area" style="position:relative;width:${wallArea.style.width || wallArea.offsetWidth+'px'};height:${wallArea.style.height || wallArea.offsetHeight+'px'};max-width:1200px;margin:0 auto;background:#000;border-radius:16px;overflow:visible;">\n`;
+      let html = `<div class="wall-area" style="position:relative;width:${wallArea.style.width || wallArea.offsetWidth+'px'};height:${wallArea.style.height || wallArea.offsetHeight+'px'};max-width:1200px;margin:0 auto;background:#ffc1e3;border-radius:16px;overflow:visible;">\n`;
       imgs.forEach(img => {
         html += `  <img src="${img.src}" alt="${img.getAttribute('data-img')}" style="position:absolute;left:${img.style.left};top:${img.style.top};width:${img.style.width};height:${img.style.height};background:transparent;border:none;box-shadow:none;outline:none;z-index:1;">\n`;
       });
