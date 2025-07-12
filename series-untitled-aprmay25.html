@@ -2,191 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Organic Drag & Drop Wall – Co Smith</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Untitled – APR/MAY ’25 – Co Smith</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <style>
     html, body {
-      background: #000 !important;
+      margin: 0; padding: 0;
+      background: #000;
       color: #c9ffd7;
       font-family: 'Barlow Condensed', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
       min-height: 100vh;
-      width: 100vw;
-      box-sizing: border-box;
-      overflow-x: hidden;
     }
     h1 {
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      font-weight: 700;
-      color: #c9ffd7;
-      letter-spacing: 0.13em;
       text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 0.7rem;
       font-size: 2.3rem;
-      text-transform: uppercase;
-      margin-top: 2.3rem;
-      margin-bottom: 2.3rem;
+      letter-spacing: 0.11em;
     }
-    .series-description {
-      color: #a7ffb7;
-      font-size: 1.18rem;
-      letter-spacing: 0.04em;
-      margin-bottom: 2.4rem;
+    .instructions {
       text-align: center;
+      color: #a7ffb7;
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
     }
-    .wall-organic {
+    .wall-area {
       position: relative;
-      width: 92vw;
-      max-width: 1100px;
-      height: 72vw;
-      max-height: 850px;
-      margin: 0 auto 3vw auto;
+      width: 96vw;
+      height: 85vh;
+      min-height: 600px;
+      max-width: 1200px;
+      margin: 0 auto;
       background: #000;
       border-radius: 16px;
+      /* no border, no shadow */
       overflow: visible;
     }
-    .organic-img {
+    .wall-img {
       position: absolute;
-      object-fit: cover;
-      background: #000;
-      border-radius: 9px;
-      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.17);
-      border: 2.5px solid #111;
-      transition: transform 0.18s;
-      z-index: 2;
-      cursor: pointer;
-      /* For accessibility */
+      cursor: grab;
+      transition: box-shadow 0.13s, transform 0.1s;
+      user-select: none;
+      border: none;
+      box-shadow: none;
       outline: none;
+      z-index: 1;
     }
-    .organic-img:focus,
-    .organic-img:hover {
+    .wall-img.dragging {
+      z-index: 1000;
+      opacity: 0.87;
       transform: scale(1.03);
-      z-index: 3;
-      outline: 2px solid #a7ffb7;
     }
-
-    /* Organic, non-overlapping arrangement inspired by your reference */
-    /* us2 (main, large center) */
-    .img-us2 { left: 36vw; top: 25vw; width: 22vw; height: 22vw; z-index: 2; }
-    /* Top row */
-    .img-us10 { left: 5vw; top: 5vw; width: 12vw; height: 12vw; }
-    .img-us5  { left: 19vw; top: 2vw; width: 11vw; height: 11vw; }
-    .img-us7  { left: 32vw; top: 6vw; width: 10vw; height: 10vw;}
-    .img-us11 { left: 54vw; top: 3vw; width: 12vw; height: 12vw;}
-    /* Second layer left */
-    .img-us3  { left: 11vw; top: 19vw; width: 10vw; height: 10vw;}
-    /* Second layer right */
-    .img-us9  { left: 61vw; top: 20vw; width: 10vw; height: 10vw;}
-    /* Lower row left */
-    .img-us4  { left: 18vw; top: 39vw; width: 11vw; height: 11vw;}
-    /* Lower row right */
-    .img-us1  { left: 67vw; top: 38vw; width: 11vw; height: 11vw;}
-    /* Bottom left */
-    .img-us6  { left: 4vw; top: 53vw; width: 12vw; height: 12vw;}
-    .img-us8  { left: 27vw; top: 53vw; width: 12vw; height: 12vw;}
-
-    @media (max-width: 900px) {
-      .wall-organic {
+    /* Make centerpiece (us2) bigger */
+    .wall-img[data-img="us2"] {
+      width: 28vw;
+      min-width: 240px;
+      max-width: 420px;
+      height: auto;
+    }
+    /* All other images can be a bit smaller but still variable */
+    .wall-img:not([data-img="us2"]) {
+      width: 14vw;
+      min-width: 110px;
+      max-width: 240px;
+      height: auto;
+    }
+    @media (max-width: 700px) {
+      .wall-area {
         width: 99vw;
-        height: 155vw;
-        min-height: 100vw;
-        max-height: unset;
+        min-height: 130vw;
+        height: 140vw;
       }
-      .organic-img { border-width: 1.5px; }
-      /* Adjust positions for mobile */
-      .img-us2 { left: 27vw; top: 40vw; width: 45vw; height: 45vw; }
-      .img-us10 { left: 2vw; top: 10vw; width: 19vw; height: 19vw; }
-      .img-us5  { left: 10vw; top: 2vw; width: 16vw; height: 16vw; }
-      .img-us7  { left: 58vw; top: 16vw; width: 14vw; height: 14vw;}
-      .img-us11 { left: 72vw; top: 7vw; width: 19vw; height: 19vw;}
-      .img-us3  { left: 4vw; top: 54vw; width: 15vw; height: 15vw;}
-      .img-us9  { left: 75vw; top: 60vw; width: 14vw; height: 14vw;}
-      .img-us4  { left: 10vw; top: 90vw; width: 17vw; height: 17vw;}
-      .img-us1  { left: 68vw; top: 93vw; width: 17vw; height: 17vw;}
-      .img-us6  { left: 2vw; top: 120vw; width: 17vw; height: 17vw;}
-      .img-us8  { left: 42vw; top: 120vw; width: 17vw; height: 17vw;}
+      .wall-img[data-img="us2"] {
+        width: 55vw;
+        min-width: 160px;
+        max-width: 90vw;
+      }
+      .wall-img:not([data-img="us2"]) {
+        width: 24vw;
+        min-width: 70px;
+        max-width: 50vw;
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a class="logo" href="index.html">Co Smith</a>
-    <div class="nav-links">
-      <a href="info.html">Info</a>
-      <a href="works.html">Works</a>
-      <a href="store.html">Store</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-  <main>
-    <h1>Untitled – APR/MAY ’25</h1>
-    <div class="series-description">
-      A new series exploring [your theme/medium/subject], created between April and May 2025.
-    </div>
-    <div class="wall-organic">
-      <img src="https://co-smith.art/images/us10.jpg" alt="us10" class="organic-img img-us10" tabindex="0" />
-      <img src="https://co-smith.art/images/us5.jpg"  alt="us5"  class="organic-img img-us5"  tabindex="0" />
-      <img src="https://co-smith.art/images/us7.jpg"  alt="us7"  class="organic-img img-us7"  tabindex="0" />
-      <img src="https://co-smith.art/images/us11.jpg" alt="us11" class="organic-img img-us11" tabindex="0" />
-      <img src="https://co-smith.art/images/us3.jpg"  alt="us3"  class="organic-img img-us3"  tabindex="0" />
-      <img src="https://co-smith.art/images/us2.jpg"  alt="us2"  class="organic-img img-us2"  tabindex="0" />
-      <img src="https://co-smith.art/images/us9.jpg"  alt="us9"  class="organic-img img-us9"  tabindex="0" />
-      <img src="https://co-smith.art/images/us4.jpg"  alt="us4"  class="organic-img img-us4"  tabindex="0" />
-      <img src="https://co-smith.art/images/us1.jpg"  alt="us1"  class="organic-img img-us1"  tabindex="0" />
-      <img src="https://co-smith.art/images/us6.jpg"  alt="us6"  class="organic-img img-us6"  tabindex="0" />
-      <img src="https://co-smith.art/images/us8.jpg"  alt="us8"  class="organic-img img-us8"  tabindex="0" />
-    </div>
-  </main>
-  <footer class="copyright">
-    &copy; 2025 Co Smith. All rights reserved.
-  </footer>
-  <!-- Lightbox HTML -->
-  <div class="lightbox-overlay" id="lightbox-overlay" tabindex="-1">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-    <img id="lightbox-image" class="lightbox-image" src="" alt="">
+  <h1>Untitled – APR/MAY ’25</h1>
+  <div class="instructions">
+    Drag images anywhere to arrange your wall.<br>
+    No borders, no grid—just you and your collage!
+  </div>
+  <div class="wall-area" id="wallArea">
+    <!-- Initial positions are organic/randomized, but you can drag them anywhere! -->
+    <img src="https://co-smith.art/images/us10.jpg" data-img="us10" class="wall-img" style="top: 6vw; left: 5vw;">
+    <img src="https://co-smith.art/images/us5.jpg"  data-img="us5"  class="wall-img" style="top: 1vw; left: 26vw;">
+    <img src="https://co-smith.art/images/us7.jpg"  data-img="us7"  class="wall-img" style="top: 12vw; left: 49vw;">
+    <img src="https://co-smith.art/images/us11.jpg" data-img="us11" class="wall-img" style="top: 7vw; left: 70vw;">
+    <img src="https://co-smith.art/images/us3.jpg"  data-img="us3"  class="wall-img" style="top: 32vw; left: 8vw;">
+    <img src="https://co-smith.art/images/us2.jpg"  data-img="us2"  class="wall-img" style="top: 25vw; left: 32vw;">
+    <img src="https://co-smith.art/images/us9.jpg"  data-img="us9"  class="wall-img" style="top: 27vw; left: 70vw;">
+    <img src="https://co-smith.art/images/us4.jpg"  data-img="us4"  class="wall-img" style="top: 51vw; left: 20vw;">
+    <img src="https://co-smith.art/images/us1.jpg"  data-img="us1"  class="wall-img" style="top: 54vw; left: 58vw;">
+    <img src="https://co-smith.art/images/us6.jpg"  data-img="us6"  class="wall-img" style="top: 62vw; left: 5vw;">
+    <img src="https://co-smith.art/images/us8.jpg"  data-img="us8"  class="wall-img" style="top: 70vw; left: 40vw;">
   </div>
   <script>
-    // Lightbox functionality
-    const images = document.querySelectorAll('.organic-img');
-    const overlay = document.getElementById('lightbox-overlay');
-    const lightboxImg = document.getElementById('lightbox-image');
-    const closeBtn = document.getElementById('lightbox-close');
+    // Basic drag and drop for organic positioning
+    const wallArea = document.getElementById('wallArea');
+    let dragImg = null, offsetX = 0, offsetY = 0;
 
-    images.forEach(img => {
-      img.addEventListener('click', function () {
-        overlay.classList.add('active');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxImg.focus();
-      });
-      img.addEventListener('keydown', function (e) {
-        if (e.key === "Enter" || e.key === " " || e.keyCode === 13 || e.keyCode === 32) {
-          e.preventDefault();
-          overlay.classList.add('active');
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt;
-          lightboxImg.focus();
-        }
-      });
-    });
-    closeBtn.addEventListener('click', function () {
-      overlay.classList.remove('active');
-      lightboxImg.src = '';
-    });
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) {
-        overlay.classList.remove('active');
-        lightboxImg.src = '';
-      }
-    });
-    document.addEventListener('keydown', function (e) {
-      if (overlay.classList.contains('active') && (e.key === 'Escape' || e.keyCode === 27)) {
-        overlay.classList.remove('active');
-        lightboxImg.src = '';
-      }
+    function onMouseDown(e) {
+      if (!e.target.classList.contains('wall-img')) return;
+      dragImg = e.target;
+      dragImg.classList.add('dragging');
+      const rect = dragImg.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      // Prevent scrolling on touch
+      document.body.style.userSelect = 'none';
+    }
+
+    function onMouseMove(e) {
+      if (!dragImg) return;
+      let x = e.clientX - offsetX - wallArea.getBoundingClientRect().left;
+      let y = e.clientY - offsetY - wallArea.getBoundingClientRect().top;
+      // Clamp to wallArea
+      x = Math.max(0, Math.min(wallArea.offsetWidth - dragImg.offsetWidth, x));
+      y = Math.max(0, Math.min(wallArea.offsetHeight - dragImg.offsetHeight, y));
+      dragImg.style.left = x + "px";
+      dragImg.style.top = y + "px";
+    }
+
+    function onMouseUp(e) {
+      if (dragImg) dragImg.classList.remove('dragging');
+      dragImg = null;
+      document.body.style.userSelect = '';
+    }
+
+    wallArea.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+
+    // Touch support
+    wallArea.addEventListener('touchstart', function(e) {
+      const touch = e.targetTouches[0];
+      if (!touch || !e.target.classList.contains('wall-img')) return;
+      dragImg = e.target;
+      dragImg.classList.add('dragging');
+      const rect = dragImg.getBoundingClientRect();
+      offsetX = touch.clientX - rect.left;
+      offsetY = touch.clientY - rect.top;
+      document.body.style.userSelect = 'none';
+    }, {passive:false});
+
+    window.addEventListener('touchmove', function(e) {
+      if (!dragImg) return;
+      const touch = e.targetTouches ? e.targetTouches[0] : e.touches[0];
+      let x = touch.clientX - offsetX - wallArea.getBoundingClientRect().left;
+      let y = touch.clientY - offsetY - wallArea.getBoundingClientRect().top;
+      x = Math.max(0, Math.min(wallArea.offsetWidth - dragImg.offsetWidth, x));
+      y = Math.max(0, Math.min(wallArea.offsetHeight - dragImg.offsetHeight, y));
+      dragImg.style.left = x + "px";
+      dragImg.style.top = y + "px";
+      e.preventDefault();
+    }, {passive:false});
+
+    window.addEventListener('touchend', function(e) {
+      if (dragImg) dragImg.classList.remove('dragging');
+      dragImg = null;
+      document.body.style.userSelect = '';
     });
   </script>
 </body>
