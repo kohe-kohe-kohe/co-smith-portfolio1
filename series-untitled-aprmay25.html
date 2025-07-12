@@ -1,27 +1,85 @@
-<!DOCTYPE html>
+//<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Untitled – APR/MAY ’25 (Final Static Wall)</title>
-  <meta name="viewport" content="width=1200, initial-scale=1">
+  <title>Untitled – APR/MAY ’25 (Static Wall)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
     html, body {
       margin: 0; padding: 0;
-      background: #000; /* back to black */
+      background: #000;
       color: #c9ffd7;
       font-family: 'Barlow Condensed', Arial, sans-serif;
       min-height: 100vh;
       width: 100vw;
       box-sizing: border-box;
+      overflow-x: hidden;
     }
-    .banner {
+    .site-header {
+      background: #000;
       width: 100vw;
       max-width: 100%;
-      display: block;
-      margin: 0 auto 0 auto;
       border-bottom: 2px solid #1a1a1a;
-      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7em 2.5vw 0.7em 2.5vw;
+      box-sizing: border-box;
+    }
+    .site-title {
+      font-size: 2.1rem;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c9ffd7;
+      text-decoration: none;
+      margin-right: 2rem;
+      transition: color 0.18s;
+      line-height: 1;
+      padding: 0.2em 0;
+      display: flex;
+      align-items: center;
+    }
+    .site-title:hover {
+      color: #a7ffb7;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2vw;
+      align-items: center;
+      font-size: 1.18rem;
+    }
+    .nav-link {
+      color: #c9ffd7;
+      text-decoration: none;
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: #111;
+      background: #c9ffd7;
+    }
+    @media (max-width: 900px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.1em 4vw 1.1em 4vw;
+        gap: 0.7em;
+      }
+      .site-title {
+        font-size: 1.38rem;
+        margin-bottom: 0.35em;
+      }
+      .nav-links {
+        font-size: 1.03rem;
+        gap: 1.3em;
+      }
     }
     h1 {
       text-align: center;
@@ -38,15 +96,15 @@
     }
     .wall-area {
       position: relative;
-      width: 1521px;
-      height: 1400px;
-      max-width: 98vw;
-      margin: 0 auto 2rem auto;
       background: #000;
-      border-radius: 16px;
+      border-radius: 0;
+      margin: 0 auto 2rem auto;
+      border: none;
       overflow: visible;
-      border: 2px solid #222;
+      width: auto;
+      height: auto;
       box-sizing: border-box;
+      /* Remove border and radius for a flat look */
     }
     .wall-img {
       position: absolute;
@@ -57,27 +115,42 @@
       z-index: 1;
       display: block;
     }
-    @media (max-width: 1600px) {
-      .wall-area { max-width: 99vw; }
-    }
+    /* Calculate minimal bounding box for the wall-area */
+    /* This will be set in style below */
     @media (max-width: 900px) {
-      .wall-area { width: 98vw; height: 200vw; min-width: 700px; }
+      .wall-area { width: 98vw; min-width: 700px; }
       .wall-img { max-width: 40vw; height: auto; }
     }
   </style>
 </head>
 <body>
-  <!-- Banner -->
-  <img src="https://co-smith.art/images/banner.jpg" alt="Co Smith Banner" class="banner">
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a href="/" class="site-title">co smith</a>
+    <nav class="nav-links">
+      <a href="/works.html" class="nav-link">works</a>
+      <a href="/writing.html" class="nav-link">writing</a>
+      <a href="/about.html" class="nav-link">about</a>
+      <a href="/contact.html" class="nav-link">contact</a>
+    </nav>
+  </header>
 
-  <!-- Heading and instructions -->
   <h1>Untitled – APR/MAY ’25</h1>
   <div class="instructions">
     (Static wall, images locked in place.)
   </div>
-
-  <!-- Wall arrangement -->
-  <div class="wall-area">
+  <!-- Wall area: tight to image bounding box, no border or rounding, no excessive area -->
+  <div
+    class="wall-area"
+    style="
+      width: 1168px; /* rightmost image: left:987px + width:180px + small buffer */
+      height: 849px; /* lowest image: top:669px + height:180px (us6) */
+      min-width: 0;
+      min-height: 0;
+      max-width: 100vw;
+      max-height: 100vh;
+    "
+  >
     <img src="https://co-smith.art/images/us10.jpg" alt="us10"
          class="wall-img"
          style="left:361px;top:238px;width:180px;height:auto;">
