@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Untitled – APR/MAY ’25 (Static Wall)</title>
+  <title>Untitled – APR/MAY ’25 (Drag & Drop Wall)</title>
   <meta name="viewport" content="width=1200, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -28,6 +28,16 @@
       font-size: 1.15rem;
       margin-bottom: 1.5rem;
     }
+    .wall-container {
+      width: 100vw;
+      height: 92vh;
+      overflow: auto;
+      border-radius: 16px;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
     .wall-area {
       position: relative;
       width: 1521px;
@@ -39,7 +49,6 @@
       overflow: visible;
       border: 2px solid #222;
       box-sizing: border-box;
-      /* This will help you see the bounds of the area */
     }
     .wall-img {
       position: absolute;
@@ -49,9 +58,15 @@
       outline: none;
       z-index: 1;
       display: block;
+      cursor: grab;
+      transition: box-shadow 0.13s, transform 0.1s;
+      user-select: none;
     }
-    /* Optional: Add a soft box-shadow for checking edges (remove or comment out when done) */
-    /* .wall-img { box-shadow: 0 0 0 2px #e0a1c5; } */
+    .wall-img.dragging {
+      z-index: 1000;
+      opacity: 0.87;
+      transform: scale(1.03);
+    }
     @media (max-width: 1600px) {
       .wall-area { max-width: 99vw; }
     }
@@ -65,42 +80,114 @@
 <body>
   <h1>Untitled – APR/MAY ’25</h1>
   <div class="instructions">
-    (Static wall, pastel pink background for border/edge checking)
+    Drag images anywhere to arrange your wall.<br>
+    Click <b>Save Layout</b> to get static HTML. Paste it to lock your arrangement.<br>
+    <em>(Scroll to see the whole wall!)</em>
   </div>
-  <div class="wall-area">
-    <img src="https://co-smith.art/images/us10.jpg" alt="us10"
-         class="wall-img"
-         style="left:325px;top:352px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us5.jpg" alt="us5"
-         class="wall-img"
-         style="left:405px;top:151px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us7.jpg" alt="us7"
-         class="wall-img"
-         style="left:673px;top:164px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us11.jpg" alt="us11"
-         class="wall-img"
-         style="left:906px;top:138px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us3.jpg" alt="us3"
-         class="wall-img"
-         style="left:357px;top:555px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us2.jpg" alt="us2"
-         class="wall-img"
-         style="left:568px;top:357px;width:370px;height:auto;">
-    <img src="https://co-smith.art/images/us9.jpg" alt="us9"
-         class="wall-img"
-         style="left:958px;top:353px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us4.jpg" alt="us4"
-         class="wall-img"
-         style="left:416px;top:757px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us1.jpg" alt="us1"
-         class="wall-img"
-         style="left:976px;top:554px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us6.jpg" alt="us6"
-         class="wall-img"
-         style="left:609px;top:986px;width:180px;height:auto;">
-    <img src="https://co-smith.art/images/us8.jpg" alt="us8"
-         class="wall-img"
-         style="left:793px;top:743px;width:180px;height:auto;">
+  <div class="wall-container">
+    <div class="wall-area" id="wallArea">
+      <img src="https://co-smith.art/images/us10.jpg" data-img="us10" class="wall-img" style="left:325px;top:352px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us5.jpg"  data-img="us5"  class="wall-img" style="left:405px;top:151px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us7.jpg"  data-img="us7"  class="wall-img" style="left:673px;top:164px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us11.jpg" data-img="us11" class="wall-img" style="left:906px;top:138px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us3.jpg"  data-img="us3"  class="wall-img" style="left:357px;top:555px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us2.jpg"  data-img="us2"  class="wall-img" style="left:568px;top:357px;width:370px;height:auto;">
+      <img src="https://co-smith.art/images/us9.jpg"  data-img="us9"  class="wall-img" style="left:958px;top:353px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us4.jpg"  data-img="us4"  class="wall-img" style="left:416px;top:757px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us1.jpg"  data-img="us1"  class="wall-img" style="left:976px;top:554px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us6.jpg"  data-img="us6"  class="wall-img" style="left:609px;top:986px;width:180px;height:auto;">
+      <img src="https://co-smith.art/images/us8.jpg"  data-img="us8"  class="wall-img" style="left:793px;top:743px;width:180px;height:auto;">
+    </div>
   </div>
+  <button class="save-btn" id="saveBtn">Save Layout</button>
+  <div class="output-html" id="outputHtml"></div>
+  <script>
+    // Drag and drop logic with proper containment and scrolling
+    const wallArea = document.getElementById('wallArea');
+    let dragImg = null, offsetX = 0, offsetY = 0, startX = 0, startY = 0;
+
+    function getWallAreaOffset() {
+      const rect = wallArea.getBoundingClientRect();
+      return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+      };
+    }
+
+    function onMouseDown(e) {
+      if (!e.target.classList.contains('wall-img')) return;
+      dragImg = e.target;
+      dragImg.classList.add('dragging');
+      const wallOffset = getWallAreaOffset();
+      startX = e.pageX;
+      startY = e.pageY;
+      offsetX = startX - (wallOffset.left + parseInt(dragImg.style.left));
+      offsetY = startY - (wallOffset.top + parseInt(dragImg.style.top));
+      document.body.style.userSelect = 'none';
+    }
+    function onMouseMove(e) {
+      if (!dragImg) return;
+      const wallOffset = getWallAreaOffset();
+      let x = e.pageX - wallOffset.left - offsetX;
+      let y = e.pageY - wallOffset.top - offsetY;
+      x = Math.max(0, Math.min(wallArea.offsetWidth - dragImg.offsetWidth, x));
+      y = Math.max(0, Math.min(wallArea.offsetHeight - dragImg.offsetHeight, y));
+      dragImg.style.left = x + "px";
+      dragImg.style.top = y + "px";
+    }
+    function onMouseUp(e) {
+      if (dragImg) dragImg.classList.remove('dragging');
+      dragImg = null;
+      document.body.style.userSelect = '';
+    }
+
+    wallArea.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+
+    // Touch support (with containment)
+    wallArea.addEventListener('touchstart', function(e) {
+      const touch = e.targetTouches[0];
+      if (!touch || !e.target.classList.contains('wall-img')) return;
+      dragImg = e.target;
+      dragImg.classList.add('dragging');
+      const wallOffset = getWallAreaOffset();
+      startX = touch.pageX;
+      startY = touch.pageY;
+      offsetX = startX - (wallOffset.left + parseInt(dragImg.style.left));
+      offsetY = startY - (wallOffset.top + parseInt(dragImg.style.top));
+      document.body.style.userSelect = 'none';
+    }, {passive:false});
+    window.addEventListener('touchmove', function(e) {
+      if (!dragImg) return;
+      const touch = e.targetTouches ? e.targetTouches[0] : e.touches[0];
+      const wallOffset = getWallAreaOffset();
+      let x = touch.pageX - wallOffset.left - offsetX;
+      let y = touch.pageY - wallOffset.top - offsetY;
+      x = Math.max(0, Math.min(wallArea.offsetWidth - dragImg.offsetWidth, x));
+      y = Math.max(0, Math.min(wallArea.offsetHeight - dragImg.offsetHeight, y));
+      dragImg.style.left = x + "px";
+      dragImg.style.top = y + "px";
+      e.preventDefault();
+    }, {passive:false});
+    window.addEventListener('touchend', function(e) {
+      if (dragImg) dragImg.classList.remove('dragging');
+      dragImg = null;
+      document.body.style.userSelect = '';
+    });
+
+    // Save Layout: outputs current HTML for the wall
+    document.getElementById('saveBtn').onclick = function() {
+      const imgs = wallArea.querySelectorAll('.wall-img');
+      let html = `<div class="wall-area" style="position:relative;width:${wallArea.style.width || wallArea.offsetWidth+'px'};height:${wallArea.style.height || wallArea.offsetHeight+'px'};max-width:1200px;margin:0 auto;background:#ffc1e3;border-radius:16px;overflow:visible;">\n`;
+      imgs.forEach(img => {
+        html += `  <img src="${img.src}" alt="${img.getAttribute('data-img')}" style="position:absolute;left:${img.style.left};top:${img.style.top};width:${img.style.width};height:${img.style.height};background:transparent;border:none;box-shadow:none;outline:none;z-index:1;">\n`;
+      });
+      html += `</div>`;
+      let out = document.getElementById('outputHtml');
+      out.textContent = html;
+      out.classList.add('active');
+    };
+  </script>
 </body>
 </html>
