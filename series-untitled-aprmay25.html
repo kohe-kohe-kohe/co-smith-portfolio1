@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Untitled – APR/MAY ’25 (Static Wall)</title>
+  <title>Untitled – APR/MAY ’25 (Final Static Wall)</title>
   <meta name="viewport" content="width=1200, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
     html, body {
       margin: 0; padding: 0;
-      background: #ffc1e3; /* Soft pastel pink! */
-      color: #222;
+      background: #000; /* back to black */
+      color: #c9ffd7;
       font-family: 'Barlow Condensed', Arial, sans-serif;
       min-height: 100vh;
       width: 100vw;
       box-sizing: border-box;
+    }
+    .banner {
+      width: 100vw;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 0 auto;
+      border-bottom: 2px solid #1a1a1a;
+      background: #000;
     }
     h1 {
       text-align: center;
@@ -34,7 +42,7 @@
       height: 1400px;
       max-width: 98vw;
       margin: 0 auto 2rem auto;
-      background: #ffc1e3;
+      background: #000;
       border-radius: 16px;
       overflow: visible;
       border: 2px solid #222;
@@ -53,17 +61,22 @@
       .wall-area { max-width: 99vw; }
     }
     @media (max-width: 900px) {
-      html, body { background: #ffc1e3; }
       .wall-area { width: 98vw; height: 200vw; min-width: 700px; }
       .wall-img { max-width: 40vw; height: auto; }
     }
   </style>
 </head>
 <body>
+  <!-- Banner -->
+  <img src="https://co-smith.art/images/banner.jpg" alt="Co Smith Banner" class="banner">
+
+  <!-- Heading and instructions -->
   <h1>Untitled – APR/MAY ’25</h1>
   <div class="instructions">
-    (Static wall, pastel pink background. Images locked in place.)
+    (Static wall, images locked in place.)
   </div>
+
+  <!-- Wall arrangement -->
   <div class="wall-area">
     <img src="https://co-smith.art/images/us10.jpg" alt="us10"
          class="wall-img"
