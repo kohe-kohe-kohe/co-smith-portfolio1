@@ -6,9 +6,8 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background: #000; /* Black background */
+      background: #000;
       margin: 0;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
       min-height: 100vh;
       overflow-x: auto;
       overflow-y: auto;
@@ -21,44 +20,32 @@
       max-height: 95vh;
       margin: 4vw auto 3vw auto;
       background: transparent;
-      border-radius: 0;
       overflow: visible;
-      margin-bottom: 3rem;
     }
     .page {
       position: absolute;
       background: transparent;
-      border-radius: 0;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5vw;
       justify-content: center;
       align-items: center;
-      box-shadow: none;
     }
-    /* Layout based on your reference image */
+    /* Reference-style layout: adjust left/top/width/height to taste */
     .page1  { left: 3vw;   top: 2vw;  width: 15vw; height: 12vw; }
     .page2  { left: 24vw;  top: 1vw;  width: 12vw; height: 10vw; flex-direction: column;}
     .page3  { left: 42vw;  top: 2vw;  width: 15vw; height: 12vw; }
     .page4  { left: 4vw;   top: 16vw; width: 15vw; height: 10vw; }
-    .page5  { left: 19vw;  top: 12vw; width: 40vw; height: 25vw; display: flex; align-items: center; justify-content: center;}
+    .page5  { left: 19vw;  top: 12vw; width: 40vw; height: 25vw; }
     .page6  { left: 61vw;  top: 12vw; width: 13vw; height: 18vw; }
     .page7  { left: 6vw;   top: 28vw; width: 15vw; height: 7vw; flex-direction: row;}
     .page8  { left: 27vw;  top: 39vw; width: 10vw; height: 8vw; }
     .page9  { left: 39vw;  top: 41vw; width: 12vw; height: 8vw; }
     .page10 { left: 61vw;  top: 33vw; width: 13vw; height: 10vw; }
     /* Adjust image sizing for grouped images */
-    .page2 img {
-      width: 90%;
-      height: auto;
-      margin: 0.2vw 0;
-    }
-    .page7 img {
-      width: 47%;
-      height: auto;
-      margin: 0 0.2vw;
-    }
+    .page2 img { width: 90%; height: auto; margin: 0.2vw 0; }
+    .page7 img { width: 47%; height: auto; margin: 0 0.2vw; }
     .page img {
       max-width: 100%;
       max-height: 100%;
@@ -76,7 +63,6 @@
     .page img:hover {
       transform: scale(1.05);
     }
-
     @media (max-width: 900px) {
       .wall-container {
         width: 99vw;
@@ -88,25 +74,6 @@
         padding: 1vw;
       }
     }
-    main {
-      max-width: unset;
-    }
-    h1 {
-      text-align: center;
-      color: #fff;
-      font-family: inherit;
-      font-size: 2.2rem;
-      margin-top: 2.4vw;
-      letter-spacing: 0.09em;
-    }
-    main > p {
-      text-align: center;
-      color: #bbb;
-      font-size: 1.17rem;
-      letter-spacing: 0.06em;
-      margin-bottom: 2vw;
-    }
-
     /* Lightbox styles */
     .lightbox-overlay {
       display: none;
@@ -210,7 +177,7 @@
       <div class="page page8">
         <img src="images/us11.jpg" alt="Photo 11" tabindex="0" />
       </div>
-      <!-- If you add more images/pages, add more .page divs here -->
+      <!-- Add more .page divs if you expand your wall -->
     </div>
   </main>
   <footer class="copyright">
