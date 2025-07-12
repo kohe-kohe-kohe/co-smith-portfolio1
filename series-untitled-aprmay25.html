@@ -2,15 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Untitled – APR/MAY ’25 – Co Smith</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      background: #000;
+    html, body {
+      background: #0e0e0e;
+      color: #c9ffd7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
       margin: 0;
+      padding: 0;
       min-height: 100vh;
-      overflow-x: auto;
-      overflow-y: auto;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-weight: 700;
+      color: #c9ffd7;
+      letter-spacing: 0.13em;
+      text-align: center;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      margin-top: 2.3rem;
+      margin-bottom: 2.3rem;
+    }
+    .series-description {
+      color: #a7ffb7;
+      font-size: 1.18rem;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      margin-bottom: 2.4rem;
+      text-align: center;
     }
     .wall-container {
       position: relative;
@@ -18,7 +44,7 @@
       height: 78vw;
       max-width: 1200px;
       max-height: 95vh;
-      margin: 4vw auto 3vw auto;
+      margin: 0 auto 3vw auto;
       background: transparent;
       overflow: visible;
     }
@@ -32,7 +58,7 @@
       justify-content: center;
       align-items: center;
     }
-    /* Reference-style layout: adjust left/top/width/height to taste */
+    /* Main reference layout: adjust left/top/width/height if you want to fine-tune */
     .page1  { left: 3vw;   top: 2vw;  width: 15vw; height: 12vw; }
     .page2  { left: 24vw;  top: 1vw;  width: 12vw; height: 10vw; flex-direction: column;}
     .page3  { left: 42vw;  top: 2vw;  width: 15vw; height: 12vw; }
@@ -43,14 +69,13 @@
     .page8  { left: 27vw;  top: 39vw; width: 10vw; height: 8vw; }
     .page9  { left: 39vw;  top: 41vw; width: 12vw; height: 8vw; }
     .page10 { left: 61vw;  top: 33vw; width: 13vw; height: 10vw; }
-    /* Adjust image sizing for grouped images */
     .page2 img { width: 90%; height: auto; margin: 0.2vw 0; }
     .page7 img { width: 47%; height: auto; margin: 0 0.2vw; }
     .page img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      background: #000;
+      background: #111;
       border: none;
       border-radius: 0;
       box-shadow: none;
@@ -146,26 +171,26 @@
   </nav>
   <main>
     <h1>Untitled – APR/MAY ’25</h1>
-    <p>
+    <div class="series-description">
       A new series exploring [your theme/medium/subject], created between April and May 2025.
-    </p>
+    </div>
     <div class="wall-container">
       <div class="page page1">
         <img src="images/us1.jpg" alt="Photo 1" tabindex="0" />
       </div>
       <div class="page page2">
-        <img src="images/us2.jpg" alt="Photo 2" tabindex="0" />
         <img src="images/us3.jpg" alt="Photo 3" tabindex="0" />
         <img src="images/us4.jpg" alt="Photo 4" tabindex="0" />
-      </div>
-      <div class="page page3">
         <img src="images/us5.jpg" alt="Photo 5" tabindex="0" />
       </div>
-      <div class="page page4">
+      <div class="page page3">
         <img src="images/us6.jpg" alt="Photo 6" tabindex="0" />
       </div>
+      <div class="page page4">
+        <img src="images/us7.jpg" alt="Photo 7" tabindex="0" />
+      </div>
       <div class="page page5">
-        <img src="images/us7.jpg" alt="Photo 7 (center large)" tabindex="0" />
+        <img src="images/us2.jpg" alt="Photo 2 (center large)" tabindex="0" />
       </div>
       <div class="page page6">
         <img src="images/us8.jpg" alt="Photo 8" tabindex="0" />
