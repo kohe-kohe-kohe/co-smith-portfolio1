@@ -15,7 +15,7 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      width: 100%;
+      width: 100vw;
       box-sizing: border-box;
       overflow-x: hidden;
     }
@@ -33,106 +33,81 @@
     .series-description {
       color: #a7ffb7;
       font-size: 1.18rem;
-      font-family: inherit;
       letter-spacing: 0.04em;
       margin-bottom: 2.4rem;
       text-align: center;
     }
-    .wall-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 1vw;
-      width: 90vw;
+    .wall-organic {
+      position: relative;
+      width: 92vw;
       max-width: 1100px;
-      aspect-ratio: 4/3;
+      height: 72vw;
+      max-height: 850px;
       margin: 0 auto 3vw auto;
       background: #000;
+      border-radius: 16px;
+      overflow: visible;
     }
-    .wall-item {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .wall-img {
-      width: 100%;
-      height: 100%;
+    .organic-img {
+      position: absolute;
       object-fit: cover;
       background: #000;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      display: block;
-    }
-    .img-us2 {
-      z-index: 1;
-    }
-    @media (max-width: 900px) {
-      .wall-grid {
-        width: 99vw;
-        gap: 2vw;
-      }
-    }
-    /* Lightbox styles */
-    .lightbox-overlay {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0; width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.97);
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.18s;
-    }
-    .lightbox-overlay.active {
-      display: flex;
-    }
-    .lightbox-image {
-      max-width: 96vw;
-      max-height: 90vh;
-      background: #000;
-      border-radius: 0;
-      box-shadow: 0px 18px 80px 10px rgba(0,0,0,0.43);
-      outline: none;
-      border: none;
-      cursor: zoom-out;
-      animation: zoomIn 0.22s cubic-bezier(.5,1.6,.3,1);
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.88); opacity: 0.7;}
-      to { transform: scale(1); opacity: 1;}
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 28px;
-      right: 36px;
-      font-size: 2.9rem;
-      color: #fff;
-      background: none;
-      border: none;
+      border-radius: 9px;
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.17);
+      border: 2.5px solid #111;
+      transition: transform 0.18s;
+      z-index: 2;
       cursor: pointer;
-      z-index: 10001;
-      padding: 0;
-      line-height: 1;
-      opacity: 0.7;
-      transition: opacity 0.18s;
+      /* For accessibility */
+      outline: none;
     }
-    .lightbox-close:hover, .lightbox-close:focus {
-      opacity: 1;
+    .organic-img:focus,
+    .organic-img:hover {
+      transform: scale(1.03);
+      z-index: 3;
+      outline: 2px solid #a7ffb7;
     }
-    @media (max-width: 700px) {
-      .lightbox-image {
-        max-width: 99vw;
-        max-height: 65vh;
+
+    /* Organic, non-overlapping arrangement inspired by your reference */
+    /* us2 (main, large center) */
+    .img-us2 { left: 36vw; top: 25vw; width: 22vw; height: 22vw; z-index: 2; }
+    /* Top row */
+    .img-us10 { left: 5vw; top: 5vw; width: 12vw; height: 12vw; }
+    .img-us5  { left: 19vw; top: 2vw; width: 11vw; height: 11vw; }
+    .img-us7  { left: 32vw; top: 6vw; width: 10vw; height: 10vw;}
+    .img-us11 { left: 54vw; top: 3vw; width: 12vw; height: 12vw;}
+    /* Second layer left */
+    .img-us3  { left: 11vw; top: 19vw; width: 10vw; height: 10vw;}
+    /* Second layer right */
+    .img-us9  { left: 61vw; top: 20vw; width: 10vw; height: 10vw;}
+    /* Lower row left */
+    .img-us4  { left: 18vw; top: 39vw; width: 11vw; height: 11vw;}
+    /* Lower row right */
+    .img-us1  { left: 67vw; top: 38vw; width: 11vw; height: 11vw;}
+    /* Bottom left */
+    .img-us6  { left: 4vw; top: 53vw; width: 12vw; height: 12vw;}
+    .img-us8  { left: 27vw; top: 53vw; width: 12vw; height: 12vw;}
+
+    @media (max-width: 900px) {
+      .wall-organic {
+        width: 99vw;
+        height: 155vw;
+        min-height: 100vw;
+        max-height: unset;
       }
-      .lightbox-close {
-        top: 12px;
-        right: 16px;
-        font-size: 2.1rem;
-      }
+      .organic-img { border-width: 1.5px; }
+      /* Adjust positions for mobile */
+      .img-us2 { left: 27vw; top: 40vw; width: 45vw; height: 45vw; }
+      .img-us10 { left: 2vw; top: 10vw; width: 19vw; height: 19vw; }
+      .img-us5  { left: 10vw; top: 2vw; width: 16vw; height: 16vw; }
+      .img-us7  { left: 58vw; top: 16vw; width: 14vw; height: 14vw;}
+      .img-us11 { left: 72vw; top: 7vw; width: 19vw; height: 19vw;}
+      .img-us3  { left: 4vw; top: 54vw; width: 15vw; height: 15vw;}
+      .img-us9  { left: 75vw; top: 60vw; width: 14vw; height: 14vw;}
+      .img-us4  { left: 10vw; top: 90vw; width: 17vw; height: 17vw;}
+      .img-us1  { left: 68vw; top: 93vw; width: 17vw; height: 17vw;}
+      .img-us6  { left: 2vw; top: 120vw; width: 17vw; height: 17vw;}
+      .img-us8  { left: 42vw; top: 120vw; width: 17vw; height: 17vw;}
     }
   </style>
 </head>
@@ -151,41 +126,18 @@
     <div class="series-description">
       A new series exploring [your theme/medium/subject], created between April and May 2025.
     </div>
-    <div class="wall-grid">
-      <div class="wall-item" style="grid-row: 1; grid-column: 1;">
-        <img src="https://co-smith.art/images/us10.jpg" alt="us10" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 1; grid-column: 2;">
-        <img src="https://co-smith.art/images/us5.jpg" alt="us5" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 1; grid-column: 3;">
-        <img src="https://co-smith.art/images/us7.jpg" alt="us7" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 1; grid-column: 4;">
-        <img src="https://co-smith.art/images/us11.jpg" alt="us11" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 2; grid-column: 1;">
-        <img src="https://co-smith.art/images/us3.jpg" alt="us3" class="wall-img" />
-      </div>
-      <!-- us2 is the featured 2x2 image (centerpiece) -->
-      <div class="wall-item img-us2" style="grid-row: 2 / span 2; grid-column: 2 / span 2;">
-        <img src="https://co-smith.art/images/us2.jpg" alt="us2" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 2; grid-column: 4;">
-        <img src="https://co-smith.art/images/us9.jpg" alt="us9" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 3; grid-column: 1;">
-        <img src="https://co-smith.art/images/us4.jpg" alt="us4" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 3; grid-column: 4;">
-        <img src="https://co-smith.art/images/us1.jpg" alt="us1" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 4; grid-column: 1;">
-        <img src="https://co-smith.art/images/us6.jpg" alt="us6" class="wall-img" />
-      </div>
-      <div class="wall-item" style="grid-row: 4; grid-column: 2;">
-        <img src="https://co-smith.art/images/us8.jpg" alt="us8" class="wall-img" />
-      </div>
+    <div class="wall-organic">
+      <img src="https://co-smith.art/images/us10.jpg" alt="us10" class="organic-img img-us10" tabindex="0" />
+      <img src="https://co-smith.art/images/us5.jpg"  alt="us5"  class="organic-img img-us5"  tabindex="0" />
+      <img src="https://co-smith.art/images/us7.jpg"  alt="us7"  class="organic-img img-us7"  tabindex="0" />
+      <img src="https://co-smith.art/images/us11.jpg" alt="us11" class="organic-img img-us11" tabindex="0" />
+      <img src="https://co-smith.art/images/us3.jpg"  alt="us3"  class="organic-img img-us3"  tabindex="0" />
+      <img src="https://co-smith.art/images/us2.jpg"  alt="us2"  class="organic-img img-us2"  tabindex="0" />
+      <img src="https://co-smith.art/images/us9.jpg"  alt="us9"  class="organic-img img-us9"  tabindex="0" />
+      <img src="https://co-smith.art/images/us4.jpg"  alt="us4"  class="organic-img img-us4"  tabindex="0" />
+      <img src="https://co-smith.art/images/us1.jpg"  alt="us1"  class="organic-img img-us1"  tabindex="0" />
+      <img src="https://co-smith.art/images/us6.jpg"  alt="us6"  class="organic-img img-us6"  tabindex="0" />
+      <img src="https://co-smith.art/images/us8.jpg"  alt="us8"  class="organic-img img-us8"  tabindex="0" />
     </div>
   </main>
   <footer class="copyright">
@@ -198,7 +150,7 @@
   </div>
   <script>
     // Lightbox functionality
-    const images = document.querySelectorAll('.wall-img');
+    const images = document.querySelectorAll('.organic-img');
     const overlay = document.getElementById('lightbox-overlay');
     const lightboxImg = document.getElementById('lightbox-image');
     const closeBtn = document.getElementById('lightbox-close');
