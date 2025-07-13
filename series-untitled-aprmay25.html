@@ -18,8 +18,9 @@
       border: none;
       border-radius: 0;
       display: block;
+      /* Move the wall a little more to the left by shifting with translateX */
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-53%);
       right: auto;
       min-width: 0;
       min-height: 0;
@@ -45,9 +46,11 @@
       cursor: pointer;
     }
     .wall-img:hover {
-      box-shadow: 0 4px 40px 0 #c9ffd7aa;
+      /* No more green glow! */
+      box-shadow: 0 4px 40px 0 #000a;
       z-index: 3;
     }
+    /* Enhance modal/lightbox */
     .enhance-modal {
       display: none;
       position: fixed;
@@ -65,7 +68,7 @@
     .enhance-modal img {
       max-width: 92vw;
       max-height: 92vh;
-      box-shadow: 0 10px 60px 8px #0e0e0e, 0 0 0 2px #c9ffd7;
+      box-shadow: 0 10px 60px 8px #0e0e0e, 0 0 0 2px #fff;
       border-radius: 10px;
       background: #000;
       margin: auto;
@@ -124,6 +127,7 @@
         width: 99vw;
         min-width: 0;
         height: 180vw;
+        transform: translateX(-50%);
       }
       .wall-img { max-width: 40vw; height: auto; }
     }
@@ -190,6 +194,7 @@
            class="wall-img"
            style="left:749px;top:622px;width:180px;height:auto;" tabindex="0">
     </div>
+    <!-- ENHANCE MODAL -->
     <div class="enhance-modal" id="enhanceModal" tabindex="-1" aria-modal="true" role="dialog">
       <button class="modal-close" id="modalClose" aria-label="Close image">&times;</button>
       <img src="" alt="" id="modalImg">
