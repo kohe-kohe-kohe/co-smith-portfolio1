@@ -8,10 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Center the wall absolutely and base all images around the center of us2.jpg */
     .wall-area {
       position: relative;
-      width: 1168px;
+      width: 1400px;
       height: 950px;
       margin: 3.2rem auto 3.6rem auto;
       box-sizing: border-box;
@@ -26,7 +25,6 @@
       min-height: 0;
       max-width: 98vw;
       overflow: visible;
-      /* Center the images visually */
     }
     main {
       display: flex;
@@ -109,13 +107,13 @@
       font-size: 1.08rem;
       margin-bottom: 1.5rem;
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       .wall-area {
-        width: 96vw;
-        min-width: 0;
-        max-width: 99vw;
+        width: 98vw;
         left: 50%;
         transform: translateX(-50%);
+        min-width: 0;
+        max-width: 99vw;
         height: 68vw;
         min-height: 0;
         max-height: none;
@@ -157,52 +155,41 @@
     <div class="instructions">
       (Click any image to enlarge)
     </div>
-    <!-- 
-      us2.jpg is centered horizontally at (wall-area width - us2 width)/2 = (1168-370)/2 = 399px
-      so us2.jpg is at left:399px;top:232px;width:370px
-      All other images' left positions should be offset relative to that center.
-      The original lefts:
-      us10:361px, us5:449px, us7:677px, us11:919px, us3:334px, us2:568px, us9:961px, us4:416px, us1:987px, us6:609px, us8:802px
-
-      To recenter: us2 (370px wide) at center, left: (1168-370)/2 = 399px
-      The previous us2 left was 568px, so shift all images left by (568-399)=169px
-    -->
     <div class="wall-area">
       <img src="https://co-smith.art/images/us10.jpg" alt="us10"
            class="wall-img"
-           style="left:192px;top:238px;width:180px;height:auto;" tabindex="0">
+           style="left:308px;top:238px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us5.jpg" alt="us5"
            class="wall-img"
-           style="left:280px;top:35px;width:180px;height:auto;" tabindex="0">
+           style="left:396px;top:35px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us7.jpg" alt="us7"
            class="wall-img"
-           style="left:508px;top:16px;width:180px;height:auto;" tabindex="0">
+           style="left:624px;top:16px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us11.jpg" alt="us11"
            class="wall-img"
-           style="left:750px;top:38px;width:180px;height:auto;" tabindex="0">
+           style="left:866px;top:38px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us3.jpg" alt="us3"
            class="wall-img"
-           style="left:165px;top:434px;width:180px;height:auto;" tabindex="0">
+           style="left:281px;top:434px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us2.jpg" alt="us2"
            class="wall-img"
-           style="left:399px;top:232px;width:370px;height:auto;" tabindex="0">
+           style="left:515px;top:232px;width:370px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us9.jpg" alt="us9"
            class="wall-img"
-           style="left:792px;top:246px;width:180px;height:auto;" tabindex="0">
+           style="left:908px;top:246px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us4.jpg" alt="us4"
            class="wall-img"
-           style="left:247px;top:627px;width:180px;height:auto;" tabindex="0">
+           style="left:363px;top:627px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us1.jpg" alt="us1"
            class="wall-img"
-           style="left:818px;top:442px;width:180px;height:auto;" tabindex="0">
+           style="left:934px;top:442px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us6.jpg" alt="us6"
            class="wall-img"
-           style="left:440px;top:669px;width:180px;height:auto;" tabindex="0">
+           style="left:556px;top:669px;width:180px;height:auto;" tabindex="0">
       <img src="https://co-smith.art/images/us8.jpg" alt="us8"
            class="wall-img"
-           style="left:633px;top:622px;width:180px;height:auto;" tabindex="0">
+           style="left:749px;top:622px;width:180px;height:auto;" tabindex="0">
     </div>
-    <!-- ENHANCE MODAL -->
     <div class="enhance-modal" id="enhanceModal" tabindex="-1" aria-modal="true" role="dialog">
       <button class="modal-close" id="modalClose" aria-label="Close image">&times;</button>
       <img src="" alt="" id="modalImg">
