@@ -20,8 +20,26 @@
       opacity: 1;
       transition: opacity 0.5s;
     }
-    .works-gallery,
-    .works-section-title,
+    .vertical-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+      z-index: 2;
+      position: relative;
+      padding: 3.5rem 1rem 0 1rem;
+    }
+    .vertical-gallery img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.16);
+      display: block;
+      background: #181b1b;
+    }
     h1, nav, footer {
       position: relative;
       z-index: 2;
@@ -29,6 +47,24 @@
     @media (max-width: 900px) {
       .albion-blur-bg {
         filter: blur(14px) brightness(0.65);
+      }
+      .vertical-gallery {
+        max-width: 98vw;
+        padding-top: 2.2rem;
+        gap: 1.2rem;
+      }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.2rem;
+        margin-top: 1.3rem;
+      }
+      .vertical-gallery {
+        padding-top: 1.6rem;
+        gap: 0.7rem;
+      }
+      .vertical-gallery img {
+        border-radius: 7px;
       }
     }
   </style>
@@ -46,28 +82,12 @@
   </nav>
   <main>
     <h1>Albion Street</h1>
-    <div class="works-section-title">Gallery</div>
-    <div class="works-gallery">
-      <a class="gallery-item" href="images/albion1.jpg" target="_blank">
-        <img src="images/albion1.jpg" alt="Albion Street 1">
-        <div class="gallery-item-title">Albion Street 1</div>
-      </a>
-      <a class="gallery-item" href="images/albion2.jpg" target="_blank">
-        <img src="images/albion2.jpg" alt="Albion Street 2">
-        <div class="gallery-item-title">Albion Street 2</div>
-      </a>
-      <a class="gallery-item" href="images/albion3.jpg" target="_blank">
-        <img src="images/albion3.jpg" alt="Albion Street 3">
-        <div class="gallery-item-title">Albion Street 3</div>
-      </a>
-      <a class="gallery-item" href="images/albion4.jpg" target="_blank">
-        <img src="images/albion4.jpg" alt="Albion Street 4">
-        <div class="gallery-item-title">Albion Street 4</div>
-      </a>
-      <a class="gallery-item" href="images/albion5.jpg" target="_blank">
-        <img src="images/albion5.jpg" alt="Albion Street 5">
-        <div class="gallery-item-title">Albion Street 5</div>
-      </a>
+    <div class="vertical-gallery">
+      <img src="images/albion1.jpg" alt="">
+      <img src="images/albion2.jpg" alt="">
+      <img src="images/albion3.jpg" alt="">
+      <img src="images/albion4.jpg" alt="">
+      <img src="images/albion5.jpg" alt="">
       <!-- Add or remove images as needed -->
     </div>
   </main>
