@@ -39,6 +39,61 @@
       box-shadow: 0 4px 32px rgba(0,0,0,0.16);
       display: block;
       background: #181b1b;
+      cursor: pointer;
+      transition: box-shadow 0.18s;
+    }
+    .vertical-gallery img:hover,
+    .vertical-gallery img:focus {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.33);
+      outline: none;
+    }
+    /* Modal styles */
+    .albion-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.94);
+      align-items: center;
+      justify-content: center;
+      animation: fadein 0.23s;
+    }
+    .albion-modal.active {
+      display: flex;
+    }
+    .albion-modal img {
+      max-width: 92vw;
+      max-height: 92vh;
+      box-shadow: 0 10px 60px 8px #0e0e0e;
+      border-radius: 0;
+      background: #000;
+      margin: auto;
+      border: none;
+      display: block;
+    }
+    .albion-modal-close {
+      position: fixed;
+      top: 34px;
+      right: 46px;
+      color: #c9ffd7;
+      font-size: 2.7rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10001;
+      transition: color 0.15s;
+      line-height: 1;
+      opacity: 0.8;
+    }
+    .albion-modal-close:hover,
+    .albion-modal-close:focus {
+      color: #a7ffb7;
+      opacity: 1;
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
     h1, nav, footer {
       position: relative;
@@ -66,6 +121,11 @@
       .vertical-gallery img {
         border-radius: 7px;
       }
+      .albion-modal-close {
+        top: 14px;
+        right: 18px;
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -83,16 +143,62 @@
   <main>
     <h1>Albion Street</h1>
     <div class="vertical-gallery">
-      <img src="images/albion1.jpg" alt="">
-      <img src="images/albion2.jpg" alt="">
-      <img src="images/albion3.jpg" alt="">
-      <img src="images/albion4.jpg" alt="">
-      <img src="images/albion5.jpg" alt="">
+      <img src="images/albion1.jpg" alt="" tabindex="0">
+      <img src="images/albion2.jpg" alt="" tabindex="0">
+      <img src="images/albion3.jpg" alt="" tabindex="0">
+      <img src="images/albion4.jpg" alt="" tabindex="0">
+      <img src="images/albion5.jpg" alt="" tabindex="0">
       <!-- Add or remove images as needed -->
+    </div>
+    <!-- MODAL for enlarged image -->
+    <div class="albion-modal" id="albionModal" tabindex="-1" aria-modal="true" role="dialog">
+      <button class="albion-modal-close" id="albionModalClose" aria-label="Close image">&times;</button>
+      <img src="" alt="" id="albionModalImg">
     </div>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
+  <script>
+    // Modal enlarge for gallery images
+    const modal = document.getElementById('albionModal');
+    const modalImg = document.getElementById('albionModalImg');
+    const modalClose = document.getElementById('albionModalClose');
+    document.querySelectorAll('.vertical-gallery img').forEach(img => {
+      img.addEventListener('click', function() {
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        modal.classList.add('active');
+        modal.focus();
+      });
+      img.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          modalImg.src = this.src;
+          modalImg.alt = this.alt;
+          modal.classList.add('active');
+          modal.focus();
+        }
+      });
+    });
+    modalClose.addEventListener('click', function() {
+      modal.classList.remove('active');
+      modalImg.src = '';
+      modalImg.alt = '';
+    });
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if ((e.key === "Escape" || e.key === "Esc") && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
+    });
+  </script>
 </body>
 </html>
