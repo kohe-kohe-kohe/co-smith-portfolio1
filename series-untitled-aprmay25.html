@@ -8,39 +8,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Center the wall absolutely within .wall-area's parent (main) */
     .wall-area {
       position: relative;
+      width: 1168px;
+      height: 900px; /* Extended height to prevent clipping over footer */
       margin: 3.2rem auto 3.6rem auto;
+      box-sizing: border-box;
       background: none;
       border: none;
       border-radius: 0;
-      width: 1168px;
-      height: 849px;
-      box-sizing: border-box;
-      /* Center block horizontally */
+      display: block;
       left: 50%;
       transform: translateX(-50%);
       right: auto;
       min-width: 0;
       min-height: 0;
       max-width: 98vw;
-      max-height: 100vh;
-      /* Remove old bubbling/scrolling/excess area */
+      max-height: none;
       overflow: visible;
-      /* On mobile, allow responsive shrink */
     }
-    @media (max-width: 1200px){
-      .wall-area {
-        width: 96vw;
-        min-width: 0;
-        max-width: 99vw;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 68vw;
-        min-height: 0;
-        max-height: none;
-      }
+    /* Ensure main uses flex to center wall-area horizontally for all screen sizes */
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: calc(900px + 8em);
+      /* 8em buffer for h1/instructions/footer */
     }
     .wall-img {
       position: absolute;
@@ -50,14 +44,6 @@
       outline: none;
       z-index: 1;
       display: block;
-    }
-    @media (max-width: 700px) {
-      .wall-area {
-        width: 99vw;
-        min-width: 0;
-        height: 150vw;
-      }
-      .wall-img { max-width: 40vw; height: auto; }
     }
     h1 {
       text-align: center;
@@ -72,6 +58,37 @@
       color: #a7ffb7;
       font-size: 1.08rem;
       margin-bottom: 1.5rem;
+    }
+    @media (max-width: 1200px) {
+      .wall-area {
+        width: 96vw;
+        min-width: 0;
+        max-width: 99vw;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 68vw;
+        min-height: 0;
+        max-height: none;
+      }
+    }
+    @media (max-width: 700px) {
+      .wall-area {
+        width: 99vw;
+        min-width: 0;
+        height: 150vw;
+      }
+      .wall-img { max-width: 40vw; height: auto; }
+    }
+    footer.copyright {
+      text-align: center;
+      color: #a7ffb7;
+      padding: 2.2rem 0 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      font-family: inherit;
+      background: none;
+      z-index: 10;
+      position: relative;
     }
   </style>
 </head>
