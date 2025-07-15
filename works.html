@@ -15,17 +15,30 @@
       min-height: 100vh;
       font-family: 'Barlow Condensed', Arial, sans-serif;
     }
-
     body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      position: relative;
     }
-
     nav, footer {
       flex-shrink: 0;
+      z-index: 2;
+      position: relative;
     }
-
+    .bg-image-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: #111;
+      transition: background-image 0.6s cubic-bezier(.4,.1,.2,1);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
     .works-main {
       flex: 1 0 auto;
       width: 100%;
@@ -35,8 +48,9 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      z-index: 1;
+      position: relative;
     }
-
     .works-main h1 {
       color: #a7ffb7;
       font-size: 2.5rem;
@@ -44,20 +58,16 @@
       margin-bottom: 2.5rem;
       letter-spacing: 0.05em;
     }
-
     .works-list {
       width: 100%;
       padding: 0;
       margin: 0;
       list-style: none;
     }
-
     .works-list li {
-      /* border-bottom removed */
       padding: 1em 0 0.5em 0;
       margin: 0 0 0.5em 0;
     }
-
     .works-link {
       display: block;
       text-decoration: none;
@@ -66,19 +76,18 @@
       font-weight: 700;
       letter-spacing: 0.03em;
       transition: color 0.14s;
+      position: relative;
+      z-index: 2;
     }
-
     .works-link:hover, .works-link:focus {
       color: #fff;
       text-decoration: none;
     }
-
     .works-title {
       font-size: 1.5rem;
       display: block;
       margin-bottom: 0.13em;
     }
-
     .works-date {
       font-size: 1rem;
       color: #a7ffb7bb;
@@ -88,7 +97,6 @@
       margin-top: 0.1em;
       letter-spacing: 0.03em;
     }
-
     @media (max-width: 600px) {
       .works-main {
         padding: 2vw 0;
@@ -103,6 +111,7 @@
   </style>
 </head>
 <body>
+  <div class="bg-image-container" id="bgImage"></div>
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
@@ -116,61 +125,61 @@
     <h1>Works</h1>
     <ul class="works-list">
       <li>
-        <a class="works-link" href="series-untitled-aprmay25.html">
+        <a class="works-link" href="series-untitled-aprmay25.html" data-bg="images/untitled.blur.jpg">
           <span class="works-title">Untitled – APR/MAY ’25</span>
           <span class="works-date">APR/MAY ’25</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="albion-street.html">
+        <a class="works-link" href="albion-street.html" data-bg="images/albionstreet.blur.jpg">
           <span class="works-title">Albion Street</span>
           <span class="works-date">2025</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="australian-daze.html">
+        <a class="works-link" href="australian-daze.html" data-bg="images/australiandaze.blur.jpg">
           <span class="works-title">Australian Daze</span>
           <span class="works-date">2025</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="oxide.html">
+        <a class="works-link" href="oxide.html" data-bg="images/oxide.blur.jpg">
           <span class="works-title">Oxide</span>
           <span class="works-date">2025</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="pits.html">
+        <a class="works-link" href="pits.html" data-bg="images/pits.blur.jpg">
           <span class="works-title">Pits</span>
           <span class="works-date">2023-Ongoing</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="print.html">
+        <a class="works-link" href="print.html" data-bg="images/printmaking.blur.jpg">
           <span class="works-title">Printmaking</span>
           <span class="works-date">2024</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="east-jesus.html">
+        <a class="works-link" href="east-jesus.html" data-bg="images/ej_blur.jpg">
           <span class="works-title">East Jesus</span>
           <span class="works-date">2024</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="snowblind.html">
+        <a class="works-link" href="snowblind.html" data-bg="images/snowblind.blur.jpg">
           <span class="works-title">Snowblind</span>
           <span class="works-date">2024</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="slides-1.html">
+        <a class="works-link" href="slides-1.html" data-bg="images/slides.blur.jpg">
           <span class="works-title">Slides–#1</span>
           <span class="works-date">2023</span>
         </a>
       </li>
       <li>
-        <a class="works-link" href="parlour.html">
+        <a class="works-link" href="parlour.html" data-bg="images/parlour.blur.jpg">
           <span class="works-title">Parlour</span>
           <span class="works-date">2023</span>
         </a>
@@ -180,5 +189,33 @@
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
+  <script>
+    // Set your default background image here:
+    const defaultBg = "images/ej_blur.jpg";
+    const bgDiv = document.getElementById('bgImage');
+    bgDiv.style.backgroundImage = `url('${defaultBg}')`;
+
+    document.querySelectorAll('.works-link').forEach(link => {
+      link.addEventListener('mouseenter', function() {
+        const bg = link.getAttribute('data-bg');
+        if (bg) {
+          bgDiv.style.backgroundImage = `url('${bg}')`;
+        }
+      });
+      link.addEventListener('mouseleave', function() {
+        bgDiv.style.backgroundImage = `url('${defaultBg}')`;
+      });
+      // For accessibility: keyboard focus
+      link.addEventListener('focus', function() {
+        const bg = link.getAttribute('data-bg');
+        if (bg) {
+          bgDiv.style.backgroundImage = `url('${bg}')`;
+        }
+      });
+      link.addEventListener('blur', function() {
+        bgDiv.style.backgroundImage = `url('${defaultBg}')`;
+      });
+    });
+  </script>
 </body>
 </html>
