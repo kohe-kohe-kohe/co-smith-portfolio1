@@ -202,9 +202,7 @@
           bgDiv.style.backgroundImage = `url('${bg}')`;
         }
       });
-      link.addEventListener('mouseleave', function() {
-        bgDiv.style.backgroundImage = `url('${defaultBg}')`;
-      });
+      // Mouseleave event removed: background will not reset to default
       // For accessibility: keyboard focus
       link.addEventListener('focus', function() {
         const bg = link.getAttribute('data-bg');
@@ -212,9 +210,7 @@
           bgDiv.style.backgroundImage = `url('${bg}')`;
         }
       });
-      link.addEventListener('blur', function() {
-        bgDiv.style.backgroundImage = `url('${defaultBg}')`;
-      });
+      // Blur event removed: background will not reset to default
     });
   </script>
 </body>
