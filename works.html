@@ -8,112 +8,125 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .works-blur-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      filter: blur(28px) brightness(0.4) saturate(1.2);
-      z-index: 0;
-      opacity: 1;
-      pointer-events: none;
-      user-select: none;
+    html, body {
+      background: #0e0e0e;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
     }
-    main.works-main {
-      position: relative;
-      z-index: 1;
-      width: 100vw;
-      min-height: 90vh;
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav, footer {
+      flex-shrink: 0;
+    }
+    main {
+      flex: 1 0 auto;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5vw 0 3vw 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 0;
-      overflow: hidden;
     }
-    .works-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto 3rem auto;
+    .works-grid {
       width: 100%;
-      max-width: 430px;
-      display: flex;
-      flex-direction: column;
-      gap: 2.1rem;
-      z-index: 2;
-      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.7vw;
+      margin: 0 auto;
+      padding: 0 2vw;
     }
-    .works-link {
+    .works-option {
+      position: relative;
+      aspect-ratio: 1 / 1.27;
+      background: #181818;
+      border-radius: 0.9vw;
+      overflow: hidden;
+      box-shadow: 0 8px 32px 0 #0007;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
+      justify-content: flex-start;
+      min-height: 230px;
+      cursor: pointer;
       text-decoration: none;
-      color: #c9ffd7;
-      font-size: 1.18rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 0;
-      border: none;
-      background: none !important;
-      box-shadow: none !important;
-      transition: color 0.2s, text-decoration 0.2s;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      border-radius: 0;
+      transition: box-shadow 0.19s, transform 0.19s;
       outline: none;
+    }
+    .works-option:focus {
+      box-shadow: 0 8px 36px 0 #00edb077, 0 0 0 3px #a7ffb7;
+      z-index: 2;
+    }
+    .works-blur-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.18s linear;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .works-option:hover .works-blur-bg,
+    .works-option:focus .works-blur-bg {
+      opacity: 1;
+    }
+    .works-option-label {
       position: relative;
-    }
-    .works-link:visited,
-    .works-link:active {
-      color: #c9ffd7;
-      background: none;
-      box-shadow: none;
-    }
-    .works-link:hover,
-    .works-link:focus {
+      z-index: 2;
       color: #a7ffb7;
-      text-decoration: underline;
-      background: none !important;
-      box-shadow: none !important;
-      outline: none;
-    }
-    .works-title {
-      font-size: 1.18rem;
+      font-size: 2.1rem;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      letter-spacing: 0.13em;
       font-weight: 700;
-      color: inherit;
-      letter-spacing: 0.01em;
-      margin-bottom: 0.13em;
-      display: block;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      text-transform: uppercase;
-      background: none !important;
-      box-shadow: none !important;
+      margin: 0 0 2vw 0;
+      padding: 0.2em 1.2em 0.2em 1.2em;
+      text-shadow: 0 2px 20px #000c;
+      background: rgba(14,14,14,0.44);
+      border-radius: 0.4em;
+      pointer-events: none;
+      user-select: none;
+      transition: background 0.14s;
     }
-    .works-date {
-      font-size: 0.92rem;
-      color: #a7ffb7;
-      opacity: 0.82;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      margin-left: 0.1em;
-      font-family: 'Barlow Condensed', Arial, sans-serif;
-      background: none !important;
-      box-shadow: none !important;
+    .works-option:hover .works-option-label,
+    .works-option:focus .works-option-label {
+      background: rgba(14,14,14,0.68);
     }
-    @media (max-width: 700px) {
-      .works-list {
-        max-width: 98vw;
-        gap: 1.1rem;
+    @media (max-width: 850px) {
+      .works-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4vw;
+        padding: 0 1vw;
       }
-      .works-link, .works-title {
-        font-size: 1.01rem;
+      .works-option-label {
+        font-size: 1.2rem;
+        padding: 0.2em 0.7em;
       }
-      .works-date {
-        font-size: 0.78rem;
+      .works-option {
+        border-radius: 2vw;
+        min-height: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      main {
+        padding-top: 2vw;
+      }
+      .works-grid {
+        grid-template-columns: 1fr;
+        gap: 6vw;
+      }
+      .works-option-label {
+        font-size: 1.1rem;
       }
     }
   </style>
 </head>
 <body>
-  <img src="images/ej blur.png" alt="" class="works-blur-bg" aria-hidden="true">
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
@@ -123,70 +136,45 @@
       <a href="contact.html">Contact</a>
     </div>
   </nav>
-  <main class="works-main">
-    <h1>Works</h1>
-    <ul class="works-list">
-      <li>
-        <a class="works-link" href="series-untitled-aprmay25.html">
-          <span class="works-title">Untitled – APR/MAY ’25</span>
-          <span class="works-date">APR/MAY ’25</span>
-        </a>
-      </li>
-      <li>
-        <a class="works-link" href="albion-street.html">
-          <span class="works-title">Albion Street</span>
-          <span class="works-date">2025</span>
-        </a>
-      </li>
-      <li>
-  <a class="works-link" href="australian-daze.html">
-    <span class="works-title">Australian Daze</span>
-    <span class="works-date">2025</span>
-  </a>
-</li>
-      <li>
-        <a class="works-link" href="oxide.html">
-          <span class="works-title">Oxide</span>
-          <span class="works-date">2025</span>
-        </a>
-      </li>
-      <li>
-        <a class="works-link" href="pits.html">
-          <span class="works-title">Pits</span>
-          <span class="works-date">2023-Ongoing</span>
-        </a>
-      </li>
-      <li>
-        <a class="works-link" href="print.html">
-          <span class="works-title">Printmaking</span>
-          <span class="works-date">2024</span>
-        </a>
-      </li> 
-      <li>
-        <a class="works-link" href="east-jesus.html">
-          <span class="works-title">East Jesus</span>
-          <span class="works-date">2024</span>
-        </a>
-      </li>
-      <li>
-        <a class="works-link" href="snowblind.html">
-          <span class="works-title">Snowblind</span>
-          <span class="works-date">2024</span>
-        </a>
-      </li>
-      <li>
-        <a class="works-link" href="slides-1.html">
-          <span class="works-title">Slides–#1</span>
-          <span class="works-date">2023</span>
-        </a>
-      </li>
-      <li>
-        <a class="works-link" href="parlour.html">
-          <span class="works-title">Parlour</span>
-          <span class="works-date">2023</span>
-        </a>
-      </li>
-    </ul>
+  <main>
+    <div class="works-grid">
+      <a class="works-option" href="albion-street.html">
+        <img class="works-blur-bg" src="images/albionstreet.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">Albion Street</div>
+      </a>
+      <a class="works-option" href="australian-daze.html">
+        <img class="works-blur-bg" src="images/australiandaze.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">Australian Daze</div>
+      </a>
+      <a class="works-option" href="parlour.html">
+        <img class="works-blur-bg" src="images/parlour.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">Parlour</div>
+      </a>
+      <a class="works-option" href="oxide.html">
+        <img class="works-blur-bg" src="images/oxide.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">Oxide</div>
+      </a>
+      <a class="works-option" href="slides.html">
+        <img class="works-blur-bg" src="images/slides.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">Slides</div>
+      </a>
+      <a class="works-option" href="pits.html">
+        <img class="works-blur-bg" src="images/pits.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">The Pits</div>
+      </a>
+      <a class="works-option" href="snowblind.html">
+        <img class="works-blur-bg" src="images/snowblind.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">Snowblind</div>
+      </a>
+      <a class="works-option" href="untitled.html">
+        <img class="works-blur-bg" src="images/untitled.blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">Untitled</div>
+      </a>
+      <a class="works-option" href="east-jesus.html">
+        <img class="works-blur-bg" src="images/ej blur.jpg" alt="" aria-hidden="true">
+        <div class="works-option-label">East Jesus</div>
+      </a>
+    </div>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
