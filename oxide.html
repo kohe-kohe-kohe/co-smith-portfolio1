@@ -8,71 +8,149 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .oxide-blur-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      filter: blur(24px) brightness(0.6);
-      z-index: 0;
-      pointer-events: none;
-      user-select: none;
-      opacity: 1;
-      transition: opacity 0.5s;
+    html, body {
+      background: #0e0e0e;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
     }
-    .works-gallery,
-    .works-section-title,
-    h1, nav, footer {
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav, footer {
+      flex-shrink: 0;
+    }
+    .vertical-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3vw;
+      width: 100%;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 4vw 0 4vw 0;
+      flex: 1 0 auto;
       position: relative;
       z-index: 2;
     }
-    @media (max-width: 900px) {
-      .oxide-blur-bg {
-        filter: blur(14px) brightness(0.65);
+    .vertical-gallery img {
+      width: 100%;
+      max-width: 740px;
+      height: auto;
+      display: block;
+      background: #111;
+      border-radius: 0;
+      box-shadow: none;
+      user-select: none;
+      pointer-events: auto;
+      cursor: zoom-in;
+      transition: box-shadow 0.2s;
+    }
+    /* Lightbox styles */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,20,20,0.89);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s;
+    }
+    .lightbox-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-img {
+      max-width: 95vw;
+      max-height: 92vh;
+      box-shadow: none;
+      border-radius: 6px;
+      background: #222;
+      object-fit: contain;
+      transition: box-shadow 0.2s;
+      cursor: zoom-out;
+      outline: none;
+    }
+    @media (max-width: 850px) {
+      .vertical-gallery, .vertical-gallery img {
+        max-width: 97vw;
+      }
+      .vertical-gallery {
+        gap: 5vw;
+      }
+    }
+    @media (max-width: 500px) {
+      .vertical-gallery {
+        padding-top: 2vw;
+        gap: 7vw;
       }
     }
   </style>
 </head>
 <body>
-  <img src="images/oxide-blur.png" alt="" class="oxide-blur-bg" aria-hidden="true">
   <nav>
     <a class="logo" href="index.html">Co Smith</a>
     <div class="nav-links">
       <a href="info.html">Info</a>
-      <a href="works.html">Works</a>
+      <a href="works.html" aria-current="page">Works</a>
       <a href="store.html">Store</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
   <main>
-    <h1>Oxide</h1>
-    <div class="works-section-title">Gallery</div>
-    <div class="works-gallery">
-      <a class="gallery-item" href="images/oxide1.jpg" target="_blank">
-        <img src="images/oxide1.jpg" alt="Oxide 1">
-        <div class="gallery-item-title">Oxide 1</div>
-      </a>
-      <a class="gallery-item" href="images/oxide2.jpg" target="_blank">
-        <img src="images/oxide2.jpg" alt="Oxide 2">
-        <div class="gallery-item-title">Oxide 2</div>
-      </a>
-      <a class="gallery-item" href="images/oxide3.jpg" target="_blank">
-        <img src="images/oxide3.jpg" alt="Oxide 3">
-        <div class="gallery-item-title">Oxide 3</div>
-      </a>
-      <a class="gallery-item" href="images/oxide4.jpg" target="_blank">
-        <img src="images/oxide4.jpg" alt="Oxide 4">
-        <div class="gallery-item-title">Oxide 4</div>
-      </a>
-      <a class="gallery-item" href="images/oxide5.jpg" target="_blank">
-        <img src="images/oxide5.jpg" alt="Oxide 5">
-        <div class="gallery-item-title">Oxide 5</div>
-      </a>
-      <!-- Add more images as needed -->
+    <div class="vertical-gallery">
+      <img src="images/oxide1.jpg" alt="">
+      <img src="images/oxide2.jpg" alt="">
+      <img src="images/oxide3.jpg" alt="">
+      <img src="images/oxide4.jpg" alt="">
+      <img src="images/oxide5.jpg" alt="">
+    </div>
+    <!-- Lightbox overlay -->
+    <div class="lightbox-overlay" id="lightboxOverlay" tabindex="-1">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg" />
     </div>
   </main>
   <footer class="copyright">
     &copy; 2025 Co Smith. All rights reserved.
   </footer>
+  <script>
+    // Lightbox functionality
+    const gallery = document.querySelector('.vertical-gallery');
+    const overlay = document.getElementById('lightboxOverlay');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    gallery.addEventListener('click', function(e) {
+      if (e.target.tagName === 'IMG') {
+        lightboxImg.src = e.target.src;
+        overlay.classList.add('active');
+        lightboxImg.focus();
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    function closeLightbox() {
+      overlay.classList.remove('active');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay || e.target === lightboxImg) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (overlay.classList.contains('active') && (e.key === 'Escape' || e.key === 'Esc')) {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 </html>
