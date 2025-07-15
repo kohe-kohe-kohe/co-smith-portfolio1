@@ -54,56 +54,51 @@
 
     .works-list li {
       border-bottom: 1px solid #232323;
-      padding: 0.8em 0;
-      margin: 0;
+      padding: 1em 0 0.5em 0;
+      margin: 0 0 0.5em 0;
     }
 
     .works-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      width: 100%;
-      color: #a7ffb7;
+      display: block;
       text-decoration: none;
-      font-size: 1.5rem;
+      color: #a7ffb7;
       font-family: 'Barlow Condensed', Arial, sans-serif;
       font-weight: 700;
       letter-spacing: 0.03em;
       transition: color 0.14s;
+      /* No underline on hover */
     }
 
     .works-link:hover, .works-link:focus {
       color: #fff;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     .works-title {
-      text-align: left;
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.13em;
     }
 
     .works-date {
-      color: #a7ffb7cc;
-      font-size: 1.05rem;
+      font-size: 1rem;
+      color: #a7ffb7bb;
       font-weight: 400;
-      margin-left: 2em;
-      white-space: nowrap;
-      text-align: right;
-      min-width: 80px;
+      display: block;
+      margin-left: 0.1em;
+      margin-top: 0.1em;
+      letter-spacing: 0.03em;
     }
 
     @media (max-width: 600px) {
       .works-main {
         padding: 2vw 0;
       }
-      .works-link {
+      .works-title {
         font-size: 1.1rem;
-        flex-direction: column;
-        align-items: flex-start;
       }
       .works-date {
-        margin-left: 0;
-        margin-top: 0.2em;
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
     }
   </style>
