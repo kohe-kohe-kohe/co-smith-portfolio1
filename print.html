@@ -118,22 +118,21 @@
       margin-top: 1.2rem;
       text-transform: uppercase;
     }
-    .edition-area {
+    .edition-info {
       width: 70%;
       max-width: 320px;
-      min-height: 1.5em;
-      padding: 0.3em 0.6em;
       margin-bottom: 0.8em;
-      border-radius: 6px;
-      border: 1px solid #1c1c1c;
-      background: #171717;
-      color: #c9ffd7;
       font-size: 1em;
       font-family: inherit;
-      resize: none;
       text-align: center;
+      color: #a7ffb7;
+      background: none;
+      border: none;
       opacity: 0.95;
-      box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.08);
+      box-shadow: none;
+      padding: 0.3em 0.6em 0 0.6em;
+      /* Remove box and background */
+      display: block;
     }
     .section-heading {
       width: 100%;
@@ -255,20 +254,20 @@
   <main>
     <h1>Printmaking</h1>
     <section class="gallery">
-      <!-- First 3 prints with title and edition area -->
+      <!-- First 3 prints with title and static edition info -->
       <div class="gallery-image-wrapper">
         <div class="print-title">Print Title 1</div>
-        <textarea class="edition-area" placeholder="Edition info for Print 1"></textarea>
+        <span class="edition-info">Edition info for Print 1</span>
         <img src="images/print1.jpg" alt="Print 1" class="gallery-image" tabindex="0">
       </div>
       <div class="gallery-image-wrapper">
         <div class="print-title">Print Title 2</div>
-        <textarea class="edition-area" placeholder="Edition info for Print 2"></textarea>
+        <span class="edition-info">Edition info for Print 2</span>
         <img src="images/print2.jpg" alt="Print 2" class="gallery-image" tabindex="0">
       </div>
       <div class="gallery-image-wrapper">
         <div class="print-title">Print Title 3</div>
-        <textarea class="edition-area" placeholder="Edition info for Print 3"></textarea>
+        <span class="edition-info">Edition info for Print 3</span>
         <img src="images/print3.jpg" alt="Print 3" class="gallery-image" tabindex="0">
       </div>
       <!-- Monotype section heading -->
