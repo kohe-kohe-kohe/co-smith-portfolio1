@@ -23,6 +23,18 @@
     nav, footer {
       flex-shrink: 0;
     }
+    .project-blurb {
+      max-width: 710px;
+      margin: 0 auto 2.5vw auto;
+      color: #a7ffb7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+      text-align: left;
+      opacity: 0.93;
+      padding: 0 2vw;
+    }
     .vertical-gallery {
       display: flex;
       flex-direction: column;
@@ -61,6 +73,19 @@
       background: none;
       font-weight: 700;
       text-shadow: 0 1px 10px #0008;
+    }
+    .img-caption {
+      width: 100%;
+      max-width: 700px;
+      text-align: left;
+      font-size: 0.93rem;
+      color: #a7ffb7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      margin: 0.4em 0 1.2em 0;
+      line-height: 1.42;
+      letter-spacing: 0.01em;
+      opacity: 0.9;
+      padding-left: 2px;
     }
     /* Lightbox styles */
     .lightbox-overlay {
@@ -102,6 +127,13 @@
         margin: 4vw 0 2vw 0;
         padding-top: 0.4em;
       }
+      .img-caption {
+        max-width: 95vw;
+      }
+      .project-blurb {
+        max-width: 95vw;
+        font-size: 1rem;
+      }
     }
     @media (max-width: 500px) {
       .vertical-gallery {
@@ -122,28 +154,81 @@
     </div>
   </nav>
   <main>
+    <h1>Pits</h1>
+    <div class="project-blurb">
+      <!-- Write your project description here. Example below: -->
+      An unending stream of candid photos from clubs, pubs and pits.
+    </div>
     <div class="vertical-gallery">
       <div class="year-break">2025</div>
-      <img src="images/pcp2025-1.jpg" alt="">
-      <img src="images/pcp2025-2.jpg" alt="">
-      <img src="images/pcp2025-3.jpg" alt="">
-      <img src="images/pcp2025-4.jpg" alt="">
-      <img src="images/pcp2025-5.jpg" alt="">
+      <div>
+        <img src="images/pcp2025-1.jpg" alt="">
+        <div class="img-caption">Your caption or description about this image goes here.</div>
+      </div>
+      <div>
+        <img src="images/pcp2025-2.jpg" alt="">
+        <div class="img-caption">Add a caption for the above image if you wish.</div>
+      </div>
+      <div>
+        <img src="images/pcp2025-3.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2025-4.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2025-5.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
 
       <div class="year-break">2024</div>
-      <img src="images/pcp2024-1.jpg" alt="">
-      <img src="images/pcp2024-2.jpg" alt="">
+      <div>
+        <img src="images/pcp2024-1.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2024-2.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
 
       <div class="year-break">2023</div>
-      <img src="images/pcp2023-1.jpg" alt="">
-      <img src="images/pcp2023-2.jpg" alt="">
-      <img src="images/pcp2023-3.jpg" alt="">
-      <img src="images/pcp2023-4.jpg" alt="">
-      <img src="images/pcp2023-5.jpg" alt="">
-      <img src="images/pcp2023-6.jpg" alt="">
-      <img src="images/pcp2023-7.jpg" alt="">
-      <img src="images/pcp2023-8.jpg" alt="">
-      <img src="images/pcp2023-9.jpg" alt="">
+      <div>
+        <img src="images/pcp2023-1.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-2.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-3.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-4.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-5.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-6.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-7.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-8.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
+      <div>
+        <img src="images/pcp2023-9.jpg" alt="">
+        <div class="img-caption"></div>
+      </div>
     </div>
     <!-- Lightbox overlay -->
     <div class="lightbox-overlay" id="lightboxOverlay" tabindex="-1">
