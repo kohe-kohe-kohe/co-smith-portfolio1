@@ -16,7 +16,7 @@
       min-height: 100vh;
       width: 100%;
       box-sizing: border-box;
-      overflow-x: hidden; /* ADDED: Prevent horizontal scroll */
+      overflow-x: hidden;
     }
     h1 {
       font-family: 'Barlow Condensed', Arial, sans-serif;
@@ -28,6 +28,18 @@
       text-transform: uppercase;
       margin-top: 2.3rem;
       margin-bottom: 2.3rem;
+    }
+    .parlour-blurb {
+      max-width: 740px;
+      margin: 0 auto 2.2rem auto;
+      color: #a7ffb7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+      text-align: left;
+      opacity: 0.94;
+      padding: 0 2vw;
     }
     nav {
       background: #111;
@@ -72,10 +84,10 @@
       flex-direction: column;
       align-items: center;
       gap: 2rem;
-      width: 100%;         /* CHANGED from 100vw */
-      max-width: 1040px;   /* ADDED: restrict max width for centering */
+      width: 100%;
+      max-width: 1040px;
       padding-bottom: 2rem;
-      margin: 0 auto;      /* ADDED: center the gallery */
+      margin: 0 auto;
     }
     .gallery-image-wrapper {
       width: 100%;
@@ -167,6 +179,10 @@
         max-width: 98vw;
         max-height: 80vh;
       }
+      .parlour-blurb {
+        max-width: 98vw;
+        padding: 0 1vw;
+      }
     }
     @media (max-width: 600px) {
       h1 {
@@ -190,6 +206,10 @@
         top: 12px;
         right: 16px;
         font-size: 2.1rem;
+      }
+      .parlour-blurb {
+        font-size: 1.03rem;
+        max-width: 99vw;
       }
     }
     footer.copyright {
@@ -215,6 +235,10 @@
   </nav>
   <main>
     <h1>Parlour</h1>
+    <div class="parlour-blurb">
+      <!-- Add or edit your Parlour series info here -->
+      Parlour explores a behind the scenes view of a tattoo store, with real tattoo artists and clients candidly shot.
+    </div>
     <section class="gallery">
       <div class="gallery-image-wrapper">
         <img src="images/pp1.jpg" alt="Parlour Image 1" class="gallery-image" tabindex="0">
