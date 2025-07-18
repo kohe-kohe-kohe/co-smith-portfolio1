@@ -101,26 +101,21 @@
       font-weight: 700;
       display: block;
     }
-    .series-description-input {
-      width: 100%;
-      min-height: 3.5em;
+    .series-description-text {
       font-size: 1.17rem;
       font-family: inherit;
-      background: #161e18;
       color: #c9ffd7;
-      border: 1px solid #254d38;
-      border-radius: 8px;
-      padding: 1.2em 1em;
       margin-bottom: 0.6em;
       margin-top: 0.2em;
-      resize: vertical;
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      resize: none;
       box-sizing: border-box;
       outline: none;
-      transition: border 0.18s, background 0.18s;
-    }
-    .series-description-input:focus {
-      border-color: #a7ffb7;
-      background: #1c2e21;
+      width: 100%;
+      text-align: center;
     }
     .gallery {
       display: flex;
@@ -291,8 +286,10 @@
   <main>
     <h1>Snowblind</h1>
     <section class="series-description-area">
-      <label for="series-description" class="series-description-label">About the Series</label>
-      <textarea id="series-description" class="series-description-input" placeholder="A Bespoke 1/1 photobook handbound, following a loose narrative giving the viewer power to engage with the work however they pleaae"></textarea>
+      <span class="series-description-label">About the Series</span>
+      <div class="series-description-text">
+        A Bespoke 1/1 photobook handbound, following a loose narrative giving the viewer power to engage with the work however they please
+      </div>
     </section>
     <section class="gallery">
       <div class="gallery-image-wrapper">
