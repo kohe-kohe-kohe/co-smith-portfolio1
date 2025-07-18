@@ -21,7 +21,7 @@
   <main>
     <h1>Store</h1>
     <p>Link to your shop, prints, or products here.</p>
-    <div id='product-component-1752763305089'></div>
+  <div id='product-component-1752836019100'></div>
 <script type="text/javascript">
 /*<![CDATA[*/
 (function () {
@@ -50,41 +50,62 @@
     ShopifyBuy.UI.onReady(client).then(function (ui) {
       ui.createComponent('product', {
         id: '7648069517354',
-        node: document.getElementById('product-component-1752763305089'),
+        node: document.getElementById('product-component-1752836019100'),
         moneyFormat: '%24%7B%7Bamount%7D%7D',
         options: {
   "product": {
     "styles": {
       "product": {
         "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
+          "max-width": "100%",
+          "margin-left": "0",
           "margin-bottom": "50px"
-        }
+        },
+        "text-align": "left"
+      },
+      "title": {
+        "font-size": "26px"
       },
       "button": {
         "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        "font-size": "14px",
-        "padding-top": "15px",
-        "padding-bottom": "15px",
+        "font-size": "16px",
+        "padding-top": "16px",
+        "padding-bottom": "16px",
+        "color": "#c9ffd7",
         ":hover": {
-          "background-color": "#1d5f4d"
+          "color": "#c9ffd7",
+          "background-color": "#181818"
         },
-        "background-color": "#206a55",
+        "background-color": "#0e0e0e",
         ":focus": {
-          "background-color": "#1d5f4d"
+          "background-color": "#181818"
         },
         "border-radius": "36px",
         "padding-left": "97px",
         "padding-right": "97px"
       },
       "quantityInput": {
-        "font-size": "14px",
-        "padding-top": "15px",
-        "padding-bottom": "15px"
+        "font-size": "16px",
+        "padding-top": "16px",
+        "padding-bottom": "16px"
+      },
+      "price": {
+        "font-size": "18px"
+      },
+      "compareAt": {
+        "font-size": "15.299999999999999px"
+      },
+      "unitPrice": {
+        "font-size": "15.299999999999999px"
       }
     },
+    "layout": "horizontal",
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "description": true
+    },
+    "width": "100%",
     "text": {
       "button": "Add to cart"
     },
@@ -118,25 +139,50 @@
       },
       "button": {
         "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        "font-size": "14px",
-        "padding-top": "15px",
-        "padding-bottom": "15px",
+        "font-size": "16px",
+        "padding-top": "16px",
+        "padding-bottom": "16px",
+        "color": "#c9ffd7",
         ":hover": {
-          "background-color": "#1d5f4d"
+          "color": "#c9ffd7",
+          "background-color": "#181818"
         },
-        "background-color": "#206a55",
+        "background-color": "#0e0e0e",
         ":focus": {
-          "background-color": "#1d5f4d"
+          "background-color": "#181818"
         },
         "border-radius": "36px",
         "padding-left": "97px",
         "padding-right": "97px"
       },
       "quantityInput": {
-        "font-size": "14px",
-        "padding-top": "15px",
-        "padding-bottom": "15px"
+        "font-size": "16px",
+        "padding-top": "16px",
+        "padding-bottom": "16px"
+      },
+      "title": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "bold",
+        "font-size": "26px",
+        "color": "#4c4c4c"
+      },
+      "price": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "18px",
+        "color": "#4c4c4c"
+      },
+      "compareAt": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "15.299999999999999px",
+        "color": "#4c4c4c"
+      },
+      "unitPrice": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "15.299999999999999px",
+        "color": "#4c4c4c"
       }
     },
     "googleFonts": [
@@ -151,16 +197,17 @@
     "styles": {
       "button": {
         "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        "font-size": "14px",
-        "padding-top": "15px",
-        "padding-bottom": "15px",
+        "font-size": "16px",
+        "padding-top": "16px",
+        "padding-bottom": "16px",
+        "color": "#c9ffd7",
         ":hover": {
-          "background-color": "#1d5f4d"
+          "color": "#c9ffd7",
+          "background-color": "#181818"
         },
-        "background-color": "#206a55",
+        "background-color": "#0e0e0e",
         ":focus": {
-          "background-color": "#1d5f4d"
+          "background-color": "#181818"
         },
         "border-radius": "36px"
       }
@@ -177,17 +224,23 @@
     "styles": {
       "toggle": {
         "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        "background-color": "#206a55",
+        "background-color": "#0e0e0e",
         ":hover": {
-          "background-color": "#1d5f4d"
+          "background-color": "#181818"
         },
         ":focus": {
-          "background-color": "#1d5f4d"
+          "background-color": "#181818"
         }
       },
       "count": {
-        "font-size": "14px"
+        "font-size": "16px",
+        "color": "#c9ffd7",
+        ":hover": {
+          "color": "#c9ffd7"
+        }
+      },
+      "iconPath": {
+        "fill": "#c9ffd7"
       }
     },
     "googleFonts": [
