@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Australian Daze – Co Smith</title>
-  <!-- Add this below your <h1>Australian Daze</h1> in your HTML file -->
-<div class="project-blurb">
-  Australian Daze is a project creating work using my original work and combining similar prompts and ai tools to create a nostalgic Australiana set of images referencing subcultures within Australia during the 1970's and 1980's. 
-</div>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -45,11 +41,23 @@
       display: block;
       background: #111;
       border-radius: 0;
-      box-shadow: none; /* No border/shadow */
+      box-shadow: none;
       user-select: none;
       pointer-events: auto;
       cursor: zoom-in;
       transition: box-shadow 0.2s;
+    }
+    .project-blurb {
+      max-width: 710px;
+      margin: 0 auto 2.5vw auto;
+      color: #a7ffb7;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+      text-align: left;
+      opacity: 0.93;
+      padding: 0 2vw;
     }
     /* Lightbox styles */
     .lightbox-overlay {
@@ -106,6 +114,11 @@
     </div>
   </nav>
   <main>
+    <h1>Australian Daze</h1>
+    <div class="project-blurb">
+      Australian Daze is a project creating work using my original work and combining similar prompts and AI tools to create a nostalgic Australiana set of images referencing subcultures within Australia during the 1970's and 1980's. 
+      <!-- You can edit or expand this text! -->
+    </div>
     <div class="vertical-gallery">
       <img src="images/ad1.png" alt="">
       <img src="images/ad2.png" alt="">
