@@ -83,6 +83,45 @@
       color: #a7ffb7;
       text-decoration: none;
     }
+    .series-description-area {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 2.2rem auto;
+      position: relative;
+      z-index: 2;
+      padding: 0 1.8rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .series-description-label {
+      font-size: 1.2rem;
+      color: #a7ffb7;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      display: block;
+    }
+    .series-description-input {
+      width: 100%;
+      min-height: 3.5em;
+      font-size: 1.17rem;
+      font-family: inherit;
+      background: #161e18;
+      color: #c9ffd7;
+      border: 1px solid #254d38;
+      border-radius: 8px;
+      padding: 1.2em 1em;
+      margin-bottom: 0.6em;
+      margin-top: 0.2em;
+      resize: vertical;
+      box-sizing: border-box;
+      outline: none;
+      transition: border 0.18s, background 0.18s;
+    }
+    .series-description-input:focus {
+      border-color: #a7ffb7;
+      background: #1c2e21;
+    }
     .gallery {
       display: flex;
       flex-direction: column;
@@ -185,6 +224,10 @@
         max-width: 98vw;
         max-height: 80vh;
       }
+      .series-description-area {
+        max-width: 98vw;
+        padding: 0 1vw;
+      }
     }
     @media (max-width: 900px) {
       .snowblind-blur-bg {
@@ -213,6 +256,9 @@
         top: 12px;
         right: 16px;
         font-size: 2.1rem;
+      }
+      .series-description-area {
+        padding: 0 0.4em;
       }
     }
     .gallery-item-title, .works-section-title {
@@ -244,6 +290,10 @@
   </nav>
   <main>
     <h1>Snowblind</h1>
+    <section class="series-description-area">
+      <label for="series-description" class="series-description-label">About the Series</label>
+      <textarea id="series-description" class="series-description-input" placeholder="A Bespoke 1/1 photobook handbound, following a loose narrative giving the viewer power to engage with the work however they pleaae"></textarea>
+    </section>
     <section class="gallery">
       <div class="gallery-image-wrapper">
         <img src="images/snowblind1.jpg" alt="Snowblind 1" class="gallery-image" tabindex="0">
